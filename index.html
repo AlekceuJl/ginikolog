@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Татьяна — оперирующий гинеколог · Эстетическая и интимная гинекология</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="container nav__inner">
+    <a href="#" class="nav__logo">
+      <span class="nav__logo-mark">T</span>
+      <span class="nav__logo-text">Татьяна<br><small>гинеколог · хирург</small></span>
+    </a>
+    <nav class="nav__links">
+      <a href="#about">Обо мне</a>
+      <a href="#services">Услуги</a>
+      <a href="#advantages">Почему я</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <a href="#contact" class="btn btn--primary nav__cta">Записаться</a>
+    <button class="nav__burger" aria-label="меню" onclick="document.body.classList.toggle('menu-open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero__bg-blob"></div>
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <div class="hero__eyebrow">Эстетическая · интимная · оперативная гинекология</div>
+      <h1 class="hero__title">
+        Возвращаю женщинам<br>
+        <em>уверенность в себе</em>
+      </h1>
+      <p class="hero__lead">
+        Татьяна — оперирующий гинеколог. Работаю там, где важна не только медицина,
+        но и чуткость. Помогаю мягко, без осуждения и громких слов.
+      </p>
+      <div class="hero__cta">
+        <a href="#contact" class="btn btn--primary">Записаться на консультацию</a>
+        <a href="#about" class="btn btn--ghost">Узнать обо мне →</a>
+      </div>
+      <div class="hero__stats">
+        <div><b>12+</b><span>лет практики</span></div>
+        <div><b>2 000+</b><span>операций</span></div>
+        <div><b>20–25</b><span>операций в месяц</span></div>
+      </div>
+    </div>
+    <div class="hero__photo">
+      <div class="hero__photo-frame">
+        <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-label="фото врача">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#f4e0d6"/>
+              <stop offset="100%" stop-color="#d9b5a4"/>
+            </linearGradient>
+          </defs>
+          <rect width="400" height="500" fill="url(#g1)"/>
+          <circle cx="200" cy="190" r="75" fill="#fff" opacity=".55"/>
+          <path d="M90 500 Q200 320 310 500 Z" fill="#fff" opacity=".55"/>
+          <text x="200" y="470" text-anchor="middle" font-family="Cormorant Garamond, serif"
+                font-size="22" fill="#6e3a2c" font-style="italic">здесь будет фото</text>
+        </svg>
+      </div>
+      <div class="hero__photo-badge">
+        <span>★</span> 4.97 / 5 · 380+ отзывов
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST STRIP ===== -->
+<section class="trust">
+  <div class="container trust__inner">
+    <span>Член Российского общества акушеров-гинекологов</span>
+    <span>·</span>
+    <span>Сертификаты ESAG · IUGA</span>
+    <span>·</span>
+    <span>Высшая квалификационная категория</span>
+    <span>·</span>
+    <span>Преподаватель школы хирургии</span>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+  <div class="container about__inner">
+    <div class="about__photo">
+      <div class="about__photo-frame">
+        <svg viewBox="0 0 360 440" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#e9d4c5"/>
+              <stop offset="100%" stop-color="#b88a78"/>
+            </linearGradient>
+          </defs>
+          <rect width="360" height="440" fill="url(#g2)"/>
+        </svg>
+      </div>
+      <div class="about__quote">
+        «Хочу, чтобы каждая женщина уходила от меня
+        с ощущением: меня услышали.»
+      </div>
+    </div>
+    <div class="about__text">
+      <div class="section-eyebrow">Обо мне</div>
+      <h2 class="section-title">Не теоретик. Хирург, который оперирует почти каждый день.</h2>
+      <p>
+        Я закончила ординатуру по акушерству и гинекологии, прошла специализацию по
+        эстетической и оперативной гинекологии в России и за рубежом. Веду пациенток
+        от первой консультации до полного восстановления — и после.
+      </p>
+      <p>
+        В моей практике — интимная пластика, биопластика, лечение опущения и эстетика
+        интимной зоны. Но прежде всего — внимательный, спокойный разговор.
+        Я уверена: чтобы помочь, нужно сначала услышать.
+      </p>
+      <ul class="about__list">
+        <li>Образование — РНИМУ им. Пирогова, ординатура по акушерству и гинекологии</li>
+        <li>Стажировки в клиниках Сеула и Барселоны по интимной пластике</li>
+        <li>Эксперт по биопластике (PRP, филлеры, лазерные технологии)</li>
+        <li>Постоянный спикер профильных конференций</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">Направления</div>
+      <h2 class="section-title">С чем ко мне приходят</h2>
+      <p class="section-lead">
+        От первичной консультации до сложных операций. Каждое направление — это не услуга
+        из списка, а ответ на запрос конкретной женщины.
+      </p>
+    </div>
+    <div class="services__grid">
+      <article class="service">
+        <div class="service__icon">❀</div>
+        <h3>Интимная пластика</h3>
+        <p>Лабиопластика, пластика входа во влагалище, коррекция после родов. Ювелирный шов, минимальный период восстановления.</p>
+        <span class="service__link">Подробнее →</span>
+      </article>
+      <article class="service">
+        <div class="service__icon">✦</div>
+        <h3>Биопластика и эстетика</h3>
+        <p>PRP-терапия, филлеры, лазерное омоложение интимной зоны. Эффект виден уже через несколько недель.</p>
+        <span class="service__link">Подробнее →</span>
+      </article>
+      <article class="service">
+        <div class="service__icon">✚</div>
+        <h3>Оперативная гинекология</h3>
+        <p>Лечение опущения стенок, миом, эндометриоза. Лапароскопия и малоинвазивные методики.</p>
+        <span class="service__link">Подробнее →</span>
+      </article>
+      <article class="service">
+        <div class="service__icon">♡</div>
+        <h3>Ведение и наблюдение</h3>
+        <p>Регулярные осмотры, кольпоскопия, УЗИ, цитология. Спокойно, без спешки и осуждения.</p>
+        <span class="service__link">Подробнее →</span>
+      </article>
+      <article class="service">
+        <div class="service__icon">✿</div>
+        <h3>Восстановление после родов</h3>
+        <p>Программа для тех, кто хочет вернуть тело себе. Без давления — в вашем темпе.</p>
+        <span class="service__link">Подробнее →</span>
+      </article>
+      <article class="service">
+        <div class="service__icon">⌬</div>
+        <h3>Консультация второго мнения</h3>
+        <p>Если уже была операция или вам предложили лечение — разберём вместе, без навязывания.</p>
+        <span class="service__link">Подробнее →</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ADVANTAGES (6 БЛОКОВ ИЗ ДОКА) ===== -->
+<section class="adv" id="advantages">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <div class="section-eyebrow">Почему ко мне</div>
+      <h2 class="section-title">Шесть вещей,<br>которые я обещаю каждой пациентке</h2>
+    </div>
+    <div class="adv__grid">
+      <div class="adv__card">
+        <div class="adv__num">01</div>
+        <h3>Вы имеете право хотеть это просто для себя</h3>
+        <p>Не обязательно объяснять кому-то, почему вам это важно — мужу, маме, подругам. Если что-то в теле мешает вам чувствовать себя собой, этого достаточно, чтобы прийти на консультацию. Здесь не осуждают и не уговаривают передумать.</p>
+      </div>
+      <div class="adv__card">
+        <div class="adv__num">02</div>
+        <h3>Ювелирная точность там, где важна каждая деталь</h3>
+        <p>Интимная пластика и биопластика требуют не только хирургического мастерства, но и эстетического чутья. Аккуратный косметический шов и внимание к мелочам — то, что отличает результат «сделано» от результата «сделано красиво».</p>
+      </div>
+      <div class="adv__card">
+        <div class="adv__num">03</div>
+        <h3>Уже через несколько недель — другое отражение в зеркале</h3>
+        <p>Не нужно ждать месяцами и гадать, подействовало ли лечение. Результат эстетической гинекологии заметен быстро — и вместе с ним возвращается уверенность, о которой вы, может быть, давно забыли.</p>
+      </div>
+      <div class="adv__card adv__card--accent">
+        <div class="adv__num">04</div>
+        <h3>Руки, которым доверяют 20–25 раз в месяц</h3>
+        <p>За каждой спокойной консультацией стоит хирург, который оперирует почти каждый день. Это не теоретик с дипломом — это специалист, чьи руки помнят сотни операций и точно знают, что делают.</p>
+      </div>
+      <div class="adv__card">
+        <div class="adv__num">05</div>
+        <h3>Разговор без неловкости и недосказанности</h3>
+        <p>Можно сказать как есть — «неудобно», «стесняюсь», «не знаю, нормально ли это». Татьяна слышит то, что женщины обычно держат при себе, и помогает, не заставляя краснеть и оправдываться.</p>
+      </div>
+      <div class="adv__card">
+        <div class="adv__num">06</div>
+        <h3>Истории, которые начинались так же, как ваша</h3>
+        <p>Каждая вторая пациентка приходит по совету подруги, которая уже была здесь. Кто-то стеснялся прийти годами, кто-то решился после одного разговора — а потом сама привела кого-то ещё.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section class="process">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">Как мы работаем</div>
+      <h2 class="section-title">Спокойный путь от вопроса до результата</h2>
+    </div>
+    <div class="process__steps">
+      <div class="process__step">
+        <span class="process__num">1</span>
+        <h4>Запись</h4>
+        <p>Через форму на сайте, в Telegram или по телефону. Без анкет на две страницы.</p>
+      </div>
+      <div class="process__step">
+        <span class="process__num">2</span>
+        <h4>Консультация</h4>
+        <p>40–60 минут разговора и осмотра. Я объясню всё простым языком, без латыни и страшилок.</p>
+      </div>
+      <div class="process__step">
+        <span class="process__num">3</span>
+        <h4>План</h4>
+        <p>Несколько вариантов решения с честными плюсами и минусами. Выбор — за вами.</p>
+      </div>
+      <div class="process__step">
+        <span class="process__num">4</span>
+        <h4>Сопровождение</h4>
+        <p>Операция, восстановление, контрольные визиты. На связи и после — всегда.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="section-head section-head--center">
+      <div class="section-eyebrow">Отзывы</div>
+      <h2 class="section-title">Истории моих пациенток</h2>
+    </div>
+    <div class="reviews__grid">
+      <figure class="review">
+        <blockquote>Я шла два года. Татьяна — первый врач, рядом с которым мне не было стыдно. Через месяц после операции я снова смотрю на себя в зеркало без раздражения.</blockquote>
+        <figcaption>— Анна, 34 года</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote>Думала, что «потерплю». Оказалось, не нужно терпеть. Спасибо за то, что объяснили всё без давления, дали подумать и не торопили.</blockquote>
+        <figcaption>— Марина, 41 год</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote>После родов я не узнавала себя. Татьяна сделала маленькое чудо. Шов аккуратный, через две недели — будто ничего и не было. Уверенность вернулась.</blockquote>
+        <figcaption>— Екатерина, 29 лет</figcaption>
+      </figure>
+      <figure class="review">
+        <blockquote>Пришла по совету подруги — и теперь сама рассказываю всем. Кабинет, разговор, отношение — всё на уровне, к которому привыкаешь сразу.</blockquote>
+        <figcaption>— Ольга, 37 лет</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq" id="faq">
+  <div class="container faq__inner">
+    <div>
+      <div class="section-eyebrow">Часто спрашивают</div>
+      <h2 class="section-title">Если переживаете —<br>посмотрите ответы ниже</h2>
+      <p class="faq__hint">Не нашли свой вопрос? Напишите мне в Telegram — отвечу лично.</p>
+      <a href="#contact" class="btn btn--primary">Задать вопрос</a>
+    </div>
+    <div class="faq__list">
+      <details>
+        <summary>Это больно?</summary>
+        <p>Большинство процедур проводятся под местной анестезией, серьёзные операции — под общим наркозом. Я всегда заранее объясняю, что вы будете чувствовать.</p>
+      </details>
+      <details>
+        <summary>Сколько длится восстановление?</summary>
+        <p>От 3 дней (биопластика, PRP) до 3–4 недель (интимная пластика). Конкретные сроки разберём на консультации.</p>
+      </details>
+      <details>
+        <summary>Можно прийти просто поговорить?</summary>
+        <p>Да. Консультация — не обязательство. Можно прийти, спросить, подумать, не возвращаться. Это нормально.</p>
+      </details>
+      <details>
+        <summary>А если я стесняюсь?</summary>
+        <p>Это вообще не повод откладывать. Я работаю спокойно, без поспешных оценок. Все «неловкие» темы — рабочие.</p>
+      </details>
+      <details>
+        <summary>Сохраняется ли конфиденциальность?</summary>
+        <p>Полностью. Никаких фото без согласия, никаких упоминаний. Всё, что вы говорите, остаётся в кабинете.</p>
+      </details>
+      <details>
+        <summary>Делаете ли вы скидки?</summary>
+        <p>Программы есть для повторных пациенток и комплексных решений. Подробности — на консультации.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+  <div class="container contact__inner">
+    <div class="contact__text">
+      <div class="section-eyebrow">Запись</div>
+      <h2 class="section-title">Один шаг —<br>и вы уже не одна с этим вопросом</h2>
+      <p>
+        Заполните форму, и я свяжусь с вами в течение рабочего дня.
+        Или напишите напрямую — так быстрее.
+      </p>
+      <div class="contact__items">
+        <a href="tel:+74950000000" class="contact__item">
+          <span>☎</span>
+          <div><b>+7 (495) 000-00-00</b><small>ежедневно, 9:00–21:00</small></div>
+        </a>
+        <a href="https://t.me/" class="contact__item">
+          <span>✈</span>
+          <div><b>Telegram</b><small>@tatiana_doc</small></div>
+        </a>
+        <a href="mailto:hello@tatiana-doc.ru" class="contact__item">
+          <span>✉</span>
+          <div><b>hello@tatiana-doc.ru</b><small>почта для документов</small></div>
+        </a>
+        <div class="contact__item">
+          <span>⌖</span>
+          <div><b>Москва, ул. Пречистенка, 12</b><small>5 минут от м. Кропоткинская</small></div>
+        </div>
+      </div>
+    </div>
+    <form class="contact__form" onsubmit="event.preventDefault(); this.reset(); document.getElementById('thanks').classList.add('show');">
+      <h3>Записаться на консультацию</h3>
+      <label>Как вас зовут?
+        <input type="text" required placeholder="Имя">
+      </label>
+      <label>Телефон
+        <input type="tel" required placeholder="+7 ___ ___ __ __">
+      </label>
+      <label>С чем хотите прийти? <small>(по желанию)</small>
+        <textarea rows="3" placeholder="Можно одним словом — я уточню при звонке"></textarea>
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" required>
+        <span>Согласен(на) с обработкой персональных данных</span>
+      </label>
+      <button type="submit" class="btn btn--primary btn--full">Отправить заявку</button>
+      <div id="thanks" class="thanks">Спасибо! Я свяжусь с вами в ближайшее время ✦</div>
+    </form>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <span class="nav__logo-mark">T</span>
+      <div>
+        <b>Татьяна</b><br>
+        <small>оперирующий гинеколог · эстетическая и интимная гинекология</small>
+      </div>
+    </div>
+    <div class="footer__cols">
+      <div>
+        <h5>Разделы</h5>
+        <a href="#about">Обо мне</a>
+        <a href="#services">Услуги</a>
+        <a href="#advantages">Почему я</a>
+        <a href="#reviews">Отзывы</a>
+      </div>
+      <div>
+        <h5>Контакты</h5>
+        <a href="tel:+74950000000">+7 (495) 000-00-00</a>
+        <a href="https://t.me/">Telegram</a>
+        <a href="mailto:hello@tatiana-doc.ru">hello@tatiana-doc.ru</a>
+      </div>
+      <div>
+        <h5>Документы</h5>
+        <a href="#">Лицензия</a>
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Согласие на обработку</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom container">
+    © 2026 · Сделано с заботой о женщинах
+  </div>
+</footer>
+
+<script>
+// smooth nav
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href');
+    if(id.length>1){
+      const el=document.querySelector(id);
+      if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth'});document.body.classList.remove('menu-open');}
+    }
+  });
+});
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
+document.querySelectorAll('.adv__card,.service,.review,.process__step,.about__inner > *').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
