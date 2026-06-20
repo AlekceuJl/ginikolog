@@ -284,36 +284,55 @@
 
     <div class="mirror__frame" id="mirrorFrame">
       <!-- декоративная рамка -->
-      <svg class="mirror__svg" viewBox="0 0 500 700" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg class="mirror__svg" viewBox="-20 -20 540 740" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <linearGradient id="frameG" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#d4b88a"/>
-            <stop offset="50%" stop-color="#8c6f47"/>
-            <stop offset="100%" stop-color="#d4b88a"/>
+            <stop offset="0%" stop-color="#e6c992"/>
+            <stop offset="40%" stop-color="#8c6f47"/>
+            <stop offset="60%" stop-color="#b8945e"/>
+            <stop offset="100%" stop-color="#e6c992"/>
           </linearGradient>
-          <linearGradient id="glassG" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#2a3a32"/>
-            <stop offset="50%" stop-color="#1a2520"/>
-            <stop offset="100%" stop-color="#0f1815"/>
+          <radialGradient id="glassG" cx="50%" cy="40%" r="70%">
+            <stop offset="0%" stop-color="#2c3d34"/>
+            <stop offset="100%" stop-color="#0a1310"/>
+          </radialGradient>
+          <linearGradient id="shimG" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="rgba(255,255,255,0)"/>
+            <stop offset="50%" stop-color="rgba(255,255,255,.55)"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
           </linearGradient>
+          <clipPath id="glassClip">
+            <ellipse cx="250" cy="350" rx="210" ry="330"/>
+          </clipPath>
         </defs>
+
         <!-- стекло -->
-        <path d="M250 20 C 380 20, 460 130, 460 350 C 460 570, 380 680, 250 680 C 120 680, 40 570, 40 350 C 40 130, 120 20, 250 20 Z" fill="url(#glassG)"/>
-        <!-- блик на стекле -->
-        <path d="M120 80 C 90 180, 80 280, 110 380" stroke="rgba(255,255,255,.06)" stroke-width="40" fill="none" stroke-linecap="round"/>
-        <!-- рамка внешняя -->
-        <path d="M250 0 C 400 0, 490 130, 490 350 C 490 580, 400 700, 250 700 C 100 700, 10 580, 10 350 C 10 130, 100 0, 250 0 Z M250 20 C 120 20, 40 130, 40 350 C 40 570, 120 680, 250 680 C 380 680, 460 570, 460 350 C 460 130, 380 20, 250 20 Z"
-              fill="url(#frameG)" fill-rule="evenodd"/>
-        <!-- завитки наверху -->
-        <g fill="url(#frameG)">
-          <circle cx="250" cy="4" r="8"/>
-          <path d="M250 0 L240 -14 L250 -8 L260 -14 Z"/>
+        <ellipse cx="250" cy="350" rx="210" ry="330" fill="url(#glassG)"/>
+        <!-- блик на стекле, обрезан клипом -->
+        <g clip-path="url(#glassClip)">
+          <path d="M120 80 C 90 200, 90 320, 130 420"
+                stroke="rgba(255,255,255,.07)" stroke-width="36" fill="none" stroke-linecap="round"/>
+          <ellipse cx="180" cy="160" rx="40" ry="14" fill="rgba(255,255,255,.04)" transform="rotate(-30 180 160)"/>
         </g>
-        <!-- декоративные точки -->
-        <circle cx="250" cy="20" r="3" fill="#d4b88a"/>
-        <circle cx="250" cy="680" r="3" fill="#d4b88a"/>
-        <circle cx="40" cy="350" r="3" fill="#d4b88a"/>
-        <circle cx="460" cy="350" r="3" fill="#d4b88a"/>
+        <!-- вспышка раскрытия -->
+        <ellipse class="mirror__flash" cx="250" cy="350" rx="210" ry="330" fill="url(#shimG)" opacity="0"/>
+
+        <!-- рамка (двойной овал — ободок) -->
+        <path d="M250 0 C 388 0, 480 158, 480 350 C 480 542, 388 700, 250 700 C 112 700, 20 542, 20 350 C 20 158, 112 0, 250 0 Z
+                 M250 20 C 124 20, 40 170, 40 350 C 40 530, 124 680, 250 680 C 376 680, 460 530, 460 350 C 460 170, 376 20, 250 20 Z"
+              fill="url(#frameG)" fill-rule="evenodd"/>
+
+        <!-- декоративный венчик сверху -->
+        <g fill="url(#frameG)">
+          <circle cx="250" cy="-2" r="9"/>
+          <path d="M225 -4 q 25 -18 50 0 q -25 6 -50 0 Z" opacity=".85"/>
+          <circle cx="250" cy="-8" r="3" fill="#f0d8a6"/>
+        </g>
+
+        <!-- маленькие самоцветы по бокам -->
+        <circle cx="40"  cy="350" r="4" fill="#f0d8a6"/>
+        <circle cx="460" cy="350" r="4" fill="#f0d8a6"/>
+        <circle cx="250" cy="700" r="4" fill="#f0d8a6"/>
       </svg>
 
       <!-- слой стекла для дымки от дыхания -->
@@ -335,6 +354,24 @@
       <span class="mirror__spark" style="--x:42%;--d:1.4s"></span>
       <span class="mirror__spark" style="--x:67%;--d:2.6s"></span>
       <span class="mirror__spark" style="--x:84%;--d:3.8s"></span>
+
+      <!-- ЗАНАВЕСЬ ===================================== -->
+      <div class="mirror__curtain mirror__curtain--l" aria-hidden="true"></div>
+      <div class="mirror__curtain mirror__curtain--r" aria-hidden="true"></div>
+      <div class="mirror__tassel" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+
+      <!-- КНОПКА ОТКРЫТИЯ ============================== -->
+      <button class="mirror__open" id="mirrorOpen" type="button">
+        <span class="mirror__open-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </span>
+        <span>Открыть зеркало</span>
+      </button>
     </div>
 
     <div class="mirror__foot">
@@ -682,14 +719,26 @@ document.querySelectorAll('.btn--primary').forEach(btn=>{
 
 /* ========== ЗЕРКАЛО УВЕРЕННОСТИ ========== */
 (function(){
+  const section=document.getElementById('mirror');
   const phrases=document.querySelectorAll('.mirror__phrase');
-  if(!phrases.length)return;
-  let idx=0;
-  setInterval(()=>{
-    phrases[idx].classList.remove('active');
-    idx=(idx+1)%phrases.length;
-    phrases[idx].classList.add('active');
-  },4200);
+  const openBtn=document.getElementById('mirrorOpen');
+  if(!phrases.length||!section||!openBtn)return;
+
+  let rotation=null;
+  function startRotation(){
+    if(rotation)return;
+    let idx=0;
+    rotation=setInterval(()=>{
+      phrases[idx].classList.remove('active');
+      idx=(idx+1)%phrases.length;
+      phrases[idx].classList.add('active');
+    },4200);
+  }
+
+  openBtn.addEventListener('click',()=>{
+    section.classList.add('opened');
+    setTimeout(startRotation,1600);  // после анимации занавеси
+  });
 
   // дымка от дыхания на стекле
   const frame=document.getElementById('mirrorFrame');
