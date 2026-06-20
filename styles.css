@@ -606,6 +606,114 @@ img,svg{display:block;max-width:100%}
 }
 
 /* ========================================================== */
+/* ===== ЗАКРЫТЫЙ КАНАЛ ===================================== */
+/* ========================================================== */
+.club{
+  position:relative;padding:100px 0;overflow:hidden;
+  background:linear-gradient(180deg,#1a1f2c 0%,#0f141d 100%);color:#e9ecf2;
+}
+.club__pattern{
+  position:absolute;inset:0;opacity:.5;pointer-events:none;
+  background:
+    radial-gradient(ellipse 50% 60% at 80% 20%,rgba(62,118,165,.22) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 70% at 10% 80%,rgba(93,153,119,.16) 0%,transparent 60%);
+}
+.club__pattern::after{
+  content:"";position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle at 25% 35%,rgba(255,255,255,.05) 0,transparent 1.5px),
+    radial-gradient(circle at 70% 60%,rgba(255,255,255,.04) 0,transparent 1.5px),
+    radial-gradient(circle at 40% 80%,rgba(255,255,255,.04) 0,transparent 1.5px);
+  background-size:240px 240px;
+}
+.club__inner{position:relative;z-index:2}
+.club__card{
+  max-width:680px;margin:0 auto;text-align:center;
+  background:linear-gradient(180deg,rgba(255,255,255,.04) 0%,rgba(255,255,255,.02) 100%);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:24px;padding:50px 44px;
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter:blur(6px);
+}
+
+.club__badge{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:8px 16px;border-radius:999px;
+  background:rgba(212,184,138,.12);border:1px solid rgba(212,184,138,.3);
+  color:#d4b88a;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  margin-bottom:24px;
+}
+.club__lock{display:grid;place-items:center}
+.club__lock svg{width:16px;height:16px}
+
+.club__title{
+  font-family:var(--serif);font-weight:700;font-size:clamp(28px,3.6vw,42px);
+  line-height:1.2;color:#fff;margin-bottom:16px;
+}
+
+.club__lead{
+  font-size:17px;line-height:1.6;color:#b8bccc;margin-bottom:36px;max-width:520px;
+  margin-left:auto;margin-right:auto;
+}
+
+.club__topics{
+  display:grid;gap:14px;margin-bottom:32px;text-align:left;
+}
+.club__topic{
+  display:grid;grid-template-columns:44px 1fr;gap:18px;align-items:center;
+  padding:16px 20px;border-radius:14px;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
+  transition:.25s;
+}
+.club__topic:hover{
+  background:rgba(255,255,255,.06);border-color:rgba(212,184,138,.25);
+  transform:translateX(4px);
+}
+.club__topic-mark{
+  display:grid;place-items:center;width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(212,184,138,.25),rgba(212,184,138,.08));
+  color:#d4b88a;font-size:18px;
+}
+.club__topic b{display:block;color:#fff;font-size:16px;margin-bottom:2px;font-weight:600}
+.club__topic small{color:#9ba0b3;font-size:14px;line-height:1.45}
+
+.club__access{
+  display:flex;align-items:center;gap:10px;justify-content:center;
+  padding:14px 22px;border-radius:12px;margin-bottom:28px;
+  background:rgba(225,89,109,.08);border:1px solid rgba(225,89,109,.18);
+  color:#e7b8be;font-size:14px;line-height:1.45;
+}
+.club__access strong{color:#fff;font-weight:700}
+.club__warn{font-size:18px}
+
+.club__btn{
+  font-size:16px;padding:16px 32px;
+  background:linear-gradient(135deg,#3e76a5 0%,#2e5a82 100%);
+  box-shadow:0 14px 30px -10px rgba(62,118,165,.6), inset 0 1px 0 rgba(255,255,255,.2);
+  animation:clubPulse 2.5s ease-in-out infinite;
+}
+.club__btn:hover{
+  background:linear-gradient(135deg,#4a87ba 0%,#386a96 100%);
+  box-shadow:0 18px 40px -10px rgba(62,118,165,.7), inset 0 1px 0 rgba(255,255,255,.25);
+}
+@keyframes clubPulse{
+  0%,100%{box-shadow:0 14px 30px -10px rgba(62,118,165,.6), inset 0 1px 0 rgba(255,255,255,.2), 0 0 0 0 rgba(62,118,165,.4)}
+  50%{box-shadow:0 14px 30px -10px rgba(62,118,165,.6), inset 0 1px 0 rgba(255,255,255,.2), 0 0 0 16px rgba(62,118,165,0)}
+}
+
+.club__small{
+  margin-top:14px;font-size:13px;color:#7a8195;letter-spacing:.04em;
+}
+
+@media (max-width:700px){
+  .club{padding:70px 0}
+  .club__card{padding:36px 22px}
+  .club__topic{grid-template-columns:36px 1fr;gap:14px;padding:14px 16px}
+  .club__topic-mark{width:36px;height:36px;font-size:16px}
+  .club__access{font-size:13px;flex-wrap:wrap}
+}
+
+/* ========================================================== */
 /* ===== ЗЕРКАЛО УВЕРЕННОСТИ ================================ */
 /* ========================================================== */
 .mirror{
