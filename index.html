@@ -22,6 +22,7 @@
   <a href="#about" data-label="Обо мне"></a>
   <a href="#services" data-label="Услуги"></a>
   <a href="#advantages" data-label="Почему я"></a>
+  <a href="#mirror" data-label="Зеркало"></a>
   <a href="#reviews" data-label="Отзывы"></a>
   <a href="#faq" data-label="Вопросы"></a>
   <a href="#contact" data-label="Контакты"></a>
@@ -263,6 +264,82 @@
         <h3>Истории, которые начинались так же, как ваша</h3>
         <p>Каждая вторая пациентка приходит по совету подруги, которая уже была здесь. Кто-то стеснялся прийти годами, кто-то решился после одного разговора — а потом сама привела кого-то ещё.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MIRROR ===== -->
+<section class="mirror" id="mirror">
+  <div class="mirror__bg"></div>
+  <div class="mirror__particles" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="container mirror__inner">
+    <div class="mirror__head">
+      <div class="section-eyebrow">Зеркало уверенности</div>
+      <h2 class="section-title">Подойдите ближе.<br><em class="grad-text">Что вы видите?</em></h2>
+      <p class="mirror__hint">Поднесите курсор к зеркалу — оно ответит.</p>
+    </div>
+
+    <div class="mirror__frame" id="mirrorFrame">
+      <!-- декоративная рамка -->
+      <svg class="mirror__svg" viewBox="0 0 500 700" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="frameG" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#d4b88a"/>
+            <stop offset="50%" stop-color="#8c6f47"/>
+            <stop offset="100%" stop-color="#d4b88a"/>
+          </linearGradient>
+          <linearGradient id="glassG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2a3a32"/>
+            <stop offset="50%" stop-color="#1a2520"/>
+            <stop offset="100%" stop-color="#0f1815"/>
+          </linearGradient>
+        </defs>
+        <!-- стекло -->
+        <path d="M250 20 C 380 20, 460 130, 460 350 C 460 570, 380 680, 250 680 C 120 680, 40 570, 40 350 C 40 130, 120 20, 250 20 Z" fill="url(#glassG)"/>
+        <!-- блик на стекле -->
+        <path d="M120 80 C 90 180, 80 280, 110 380" stroke="rgba(255,255,255,.06)" stroke-width="40" fill="none" stroke-linecap="round"/>
+        <!-- рамка внешняя -->
+        <path d="M250 0 C 400 0, 490 130, 490 350 C 490 580, 400 700, 250 700 C 100 700, 10 580, 10 350 C 10 130, 100 0, 250 0 Z M250 20 C 120 20, 40 130, 40 350 C 40 570, 120 680, 250 680 C 380 680, 460 570, 460 350 C 460 130, 380 20, 250 20 Z"
+              fill="url(#frameG)" fill-rule="evenodd"/>
+        <!-- завитки наверху -->
+        <g fill="url(#frameG)">
+          <circle cx="250" cy="4" r="8"/>
+          <path d="M250 0 L240 -14 L250 -8 L260 -14 Z"/>
+        </g>
+        <!-- декоративные точки -->
+        <circle cx="250" cy="20" r="3" fill="#d4b88a"/>
+        <circle cx="250" cy="680" r="3" fill="#d4b88a"/>
+        <circle cx="40" cy="350" r="3" fill="#d4b88a"/>
+        <circle cx="460" cy="350" r="3" fill="#d4b88a"/>
+      </svg>
+
+      <!-- слой стекла для дымки от дыхания -->
+      <canvas class="mirror__fog" id="mirrorFog"></canvas>
+
+      <!-- текст в зеркале -->
+      <div class="mirror__text">
+        <div class="mirror__phrase active">«сегодня я смотрю на себя<br>без претензий»</div>
+        <div class="mirror__phrase">«мне можно хотеть это<br>для себя»</div>
+        <div class="mirror__phrase">«моё тело —<br>моё дело»</div>
+        <div class="mirror__phrase">«то, что я чувствую,<br>— нормально»</div>
+        <div class="mirror__phrase">«я не одна<br>с этим»</div>
+        <div class="mirror__phrase">«уверенность —<br>это тоже про меня»</div>
+        <div class="mirror__phrase">«я заслуживаю<br>быть собой»</div>
+      </div>
+
+      <!-- падающие "блёстки" -->
+      <span class="mirror__spark" style="--x:18%;--d:0s"></span>
+      <span class="mirror__spark" style="--x:42%;--d:1.4s"></span>
+      <span class="mirror__spark" style="--x:67%;--d:2.6s"></span>
+      <span class="mirror__spark" style="--x:84%;--d:3.8s"></span>
+    </div>
+
+    <div class="mirror__foot">
+      <p>То, что женщины говорят себе наедине, — самое честное, что есть. <br>Если ваше отражение пока не звучит так — это и есть повод прийти.</p>
+      <a href="#contact" class="btn btn--primary">Записаться на консультацию</a>
     </div>
   </div>
 </section>
@@ -545,6 +622,76 @@ document.querySelectorAll('.btn--primary').forEach(btn=>{
     btn.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
   });
 });
+
+/* ========== ЗЕРКАЛО УВЕРЕННОСТИ ========== */
+(function(){
+  const phrases=document.querySelectorAll('.mirror__phrase');
+  if(!phrases.length)return;
+  let idx=0;
+  setInterval(()=>{
+    phrases[idx].classList.remove('active');
+    idx=(idx+1)%phrases.length;
+    phrases[idx].classList.add('active');
+  },4200);
+
+  // дымка от дыхания на стекле
+  const frame=document.getElementById('mirrorFrame');
+  const canvas=document.getElementById('mirrorFog');
+  if(!frame||!canvas)return;
+  const ctx=canvas.getContext('2d');
+  let W=0,H=0,puffs=[],running=false;
+
+  function resize(){
+    const r=canvas.getBoundingClientRect();
+    W=canvas.width=r.width*devicePixelRatio;
+    H=canvas.height=r.height*devicePixelRatio;
+  }
+  resize();
+  window.addEventListener('resize',resize);
+
+  function addPuff(x,y){
+    puffs.push({
+      x:x*devicePixelRatio, y:y*devicePixelRatio,
+      r:20*devicePixelRatio, max:(70+Math.random()*40)*devicePixelRatio,
+      a:.35, life:0
+    });
+    if(!running){running=true;requestAnimationFrame(loop);}
+  }
+
+  function loop(){
+    ctx.clearRect(0,0,W,H);
+    puffs=puffs.filter(p=>{
+      p.life+=1;
+      p.r+=1.2*devicePixelRatio;
+      p.a-=.004;
+      if(p.a<=0||p.r>p.max)return false;
+      const grd=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r);
+      grd.addColorStop(0,`rgba(220,235,225,${p.a})`);
+      grd.addColorStop(.5,`rgba(180,200,190,${p.a*.5})`);
+      grd.addColorStop(1,`rgba(180,200,190,0)`);
+      ctx.fillStyle=grd;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
+      return true;
+    });
+    if(puffs.length){requestAnimationFrame(loop);}else{running=false;}
+  }
+
+  let last=0;
+  frame.addEventListener('mousemove',e=>{
+    const now=performance.now();
+    if(now-last<60)return; // throttle
+    last=now;
+    const r=canvas.getBoundingClientRect();
+    const x=e.clientX-r.left, y=e.clientY-r.top;
+    if(x<0||y<0||x>r.width||y>r.height)return;
+    addPuff(x+(Math.random()*8-4), y+(Math.random()*8-4));
+  });
+  frame.addEventListener('touchmove',e=>{
+    const t=e.touches[0];if(!t)return;
+    const r=canvas.getBoundingClientRect();
+    addPuff(t.clientX-r.left, t.clientY-r.top);
+  },{passive:true});
+})();
 
 /* ========== БОКОВАЯ DOT-НАВИГАЦИЯ ========== */
 const dots=document.querySelectorAll('#dotNav a');
