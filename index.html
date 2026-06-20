@@ -11,6 +11,35 @@
 </head>
 <body>
 
+<!-- ===== СКРОЛЛ ПРОГРЕСС ===== -->
+<div class="scroll-progress"><span id="scrollBar"></span></div>
+
+<!-- ===== КУРСОР СВЕЧЕНИЕ ===== -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ===== БОКОВАЯ DOT НАВИГАЦИЯ ===== -->
+<aside class="dot-nav" id="dotNav">
+  <a href="#about" data-label="Обо мне"></a>
+  <a href="#services" data-label="Услуги"></a>
+  <a href="#advantages" data-label="Почему я"></a>
+  <a href="#reviews" data-label="Отзывы"></a>
+  <a href="#faq" data-label="Вопросы"></a>
+  <a href="#contact" data-label="Контакты"></a>
+</aside>
+
+<!-- ===== ПЛАВАЮЩИЕ ЛИСТЬЯ (ДЕКОР) ===== -->
+<svg class="leaf leaf--1" viewBox="0 0 100 100" aria-hidden="true">
+  <path d="M50 5 C30 25, 20 55, 50 95 C80 55, 70 25, 50 5 Z M50 15 L50 90" fill="none" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+<svg class="leaf leaf--2" viewBox="0 0 100 100" aria-hidden="true">
+  <path d="M50 5 C30 25, 20 55, 50 95 C80 55, 70 25, 50 5 Z M50 15 L50 90 M50 35 L35 45 M50 35 L65 45 M50 55 L32 65 M50 55 L68 65" fill="none" stroke="currentColor" stroke-width="1.5"/>
+</svg>
+<svg class="leaf leaf--3" viewBox="0 0 100 100" aria-hidden="true">
+  <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="1.5"/>
+  <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="1" opacity=".5"/>
+  <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width=".8" opacity=".3"/>
+</svg>
+
 <!-- ===== NAV ===== -->
 <header class="nav">
   <div class="container nav__inner">
@@ -39,9 +68,9 @@
   <div class="container hero__inner">
     <div class="hero__text">
       <div class="hero__eyebrow">Эстетическая · интимная · оперативная гинекология</div>
-      <h1 class="hero__title">
+      <h1 class="hero__title" data-split>
         Возвращаю женщинам<br>
-        <em>уверенность в себе</em>
+        <em class="grad-text">уверенность в себе</em>
       </h1>
       <p class="hero__lead">
         Татьяна — оперирующий гинеколог. Работаю там, где важна не только медицина,
@@ -52,9 +81,9 @@
         <a href="#about" class="btn btn--ghost">Узнать обо мне →</a>
       </div>
       <div class="hero__stats">
-        <div><b>12+</b><span>лет практики</span></div>
-        <div><b>2 000+</b><span>операций</span></div>
-        <div><b>20–25</b><span>операций в месяц</span></div>
+        <div><b data-count="12" data-suffix="+">0</b><span>лет практики</span></div>
+        <div><b data-count="2000" data-suffix="+">0</b><span>операций</span></div>
+        <div><b data-count="25" data-prefix="20–">0</b><span>операций в месяц</span></div>
       </div>
     </div>
     <div class="hero__photo">
@@ -80,16 +109,24 @@
   </div>
 </section>
 
-<!-- ===== TRUST STRIP ===== -->
+<!-- ===== TRUST STRIP (бегущая строка) ===== -->
 <section class="trust">
-  <div class="container trust__inner">
-    <span>Член Российского общества акушеров-гинекологов</span>
-    <span>·</span>
-    <span>Сертификаты ESAG · IUGA</span>
-    <span>·</span>
-    <span>Высшая квалификационная категория</span>
-    <span>·</span>
-    <span>Преподаватель школы хирургии</span>
+  <div class="marquee">
+    <div class="marquee__track">
+      <span>❀ Член Российского общества акушеров-гинекологов</span>
+      <span>✦ Сертификаты ESAG · IUGA</span>
+      <span>✚ Высшая квалификационная категория</span>
+      <span>♡ Преподаватель школы хирургии</span>
+      <span>✿ Спикер международных конференций</span>
+      <span>⌬ Более 2000 успешных операций</span>
+      <!-- дубль для бесшовности -->
+      <span>❀ Член Российского общества акушеров-гинекологов</span>
+      <span>✦ Сертификаты ESAG · IUGA</span>
+      <span>✚ Высшая квалификационная категория</span>
+      <span>♡ Преподаватель школы хирургии</span>
+      <span>✿ Спикер международных конференций</span>
+      <span>⌬ Более 2000 успешных операций</span>
+    </div>
   </div>
 </section>
 
@@ -148,37 +185,37 @@
       </p>
     </div>
     <div class="services__grid">
-      <article class="service">
+      <article class="service" data-tilt>
         <div class="service__icon">❀</div>
         <h3>Интимная пластика</h3>
         <p>Лабиопластика, пластика входа во влагалище, коррекция после родов. Ювелирный шов, минимальный период восстановления.</p>
         <span class="service__link">Подробнее →</span>
       </article>
-      <article class="service">
+      <article class="service" data-tilt>
         <div class="service__icon">✦</div>
         <h3>Биопластика и эстетика</h3>
         <p>PRP-терапия, филлеры, лазерное омоложение интимной зоны. Эффект виден уже через несколько недель.</p>
         <span class="service__link">Подробнее →</span>
       </article>
-      <article class="service">
+      <article class="service" data-tilt>
         <div class="service__icon">✚</div>
         <h3>Оперативная гинекология</h3>
         <p>Лечение опущения стенок, миом, эндометриоза. Лапароскопия и малоинвазивные методики.</p>
         <span class="service__link">Подробнее →</span>
       </article>
-      <article class="service">
+      <article class="service" data-tilt>
         <div class="service__icon">♡</div>
         <h3>Ведение и наблюдение</h3>
         <p>Регулярные осмотры, кольпоскопия, УЗИ, цитология. Спокойно, без спешки и осуждения.</p>
         <span class="service__link">Подробнее →</span>
       </article>
-      <article class="service">
+      <article class="service" data-tilt>
         <div class="service__icon">✿</div>
         <h3>Восстановление после родов</h3>
         <p>Программа для тех, кто хочет вернуть тело себе. Без давления — в вашем темпе.</p>
         <span class="service__link">Подробнее →</span>
       </article>
-      <article class="service">
+      <article class="service" data-tilt>
         <div class="service__icon">⌬</div>
         <h3>Консультация второго мнения</h3>
         <p>Если уже была операция или вам предложили лечение — разберём вместе, без навязывания.</p>
@@ -196,32 +233,32 @@
       <h2 class="section-title">Шесть вещей,<br>которые я обещаю каждой пациентке</h2>
     </div>
     <div class="adv__grid">
-      <div class="adv__card">
+      <div class="adv__card" data-tilt>
         <div class="adv__num">01</div>
         <h3>Вы имеете право хотеть это просто для себя</h3>
         <p>Не обязательно объяснять кому-то, почему вам это важно — мужу, маме, подругам. Если что-то в теле мешает вам чувствовать себя собой, этого достаточно, чтобы прийти на консультацию. Здесь не осуждают и не уговаривают передумать.</p>
       </div>
-      <div class="adv__card">
+      <div class="adv__card" data-tilt>
         <div class="adv__num">02</div>
         <h3>Ювелирная точность там, где важна каждая деталь</h3>
         <p>Интимная пластика и биопластика требуют не только хирургического мастерства, но и эстетического чутья. Аккуратный косметический шов и внимание к мелочам — то, что отличает результат «сделано» от результата «сделано красиво».</p>
       </div>
-      <div class="adv__card">
+      <div class="adv__card" data-tilt>
         <div class="adv__num">03</div>
         <h3>Уже через несколько недель — другое отражение в зеркале</h3>
         <p>Не нужно ждать месяцами и гадать, подействовало ли лечение. Результат эстетической гинекологии заметен быстро — и вместе с ним возвращается уверенность, о которой вы, может быть, давно забыли.</p>
       </div>
-      <div class="adv__card adv__card--accent">
+      <div class="adv__card adv__card--accent" data-tilt>
         <div class="adv__num">04</div>
         <h3>Руки, которым доверяют 20–25 раз в месяц</h3>
         <p>За каждой спокойной консультацией стоит хирург, который оперирует почти каждый день. Это не теоретик с дипломом — это специалист, чьи руки помнят сотни операций и точно знают, что делают.</p>
       </div>
-      <div class="adv__card">
+      <div class="adv__card" data-tilt>
         <div class="adv__num">05</div>
         <h3>Разговор без неловкости и недосказанности</h3>
         <p>Можно сказать как есть — «неудобно», «стесняюсь», «не знаю, нормально ли это». Татьяна слышит то, что женщины обычно держат при себе, и помогает, не заставляя краснеть и оправдываться.</p>
       </div>
-      <div class="adv__card">
+      <div class="adv__card" data-tilt>
         <div class="adv__num">06</div>
         <h3>Истории, которые начинались так же, как ваша</h3>
         <p>Каждая вторая пациентка приходит по совету подруги, которая уже была здесь. Кто-то стеснялся прийти годами, кто-то решился после одного разговора — а потом сама привела кого-то ещё.</p>
@@ -416,7 +453,7 @@
 </footer>
 
 <script>
-// smooth nav
+/* ========== ПЛАВНЫЙ СКРОЛЛ К ЯКОРЯМ ========== */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
     const id=a.getAttribute('href');
@@ -426,9 +463,102 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     }
   });
 });
-// reveal on scroll
+
+/* ========== REVEAL НА СКРОЛЛЕ ========== */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
 document.querySelectorAll('.adv__card,.service,.review,.process__step,.about__inner > *').forEach(el=>io.observe(el));
+
+/* ========== ПОЛОСА ПРОГРЕССА СКРОЛЛА ========== */
+const scrollBar=document.getElementById('scrollBar');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const p=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
+  scrollBar.style.width=p+'%';
+},{passive:true});
+
+/* ========== СВЕЧЕНИЕ ЗА КУРСОРОМ ========== */
+const glow=document.getElementById('cursorGlow');
+let mx=window.innerWidth/2,my=window.innerHeight/2,gx=mx,gy=my;
+window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function loop(){
+  gx+=(mx-gx)*.12; gy+=(my-gy)*.12;
+  glow.style.transform=`translate(${gx-200}px,${gy-200}px)`;
+  requestAnimationFrame(loop);
+})();
+
+/* ========== СПЛИТ-ТЕКСТ ЗАГОЛОВКА ========== */
+document.querySelectorAll('[data-split]').forEach(el=>{
+  el.querySelectorAll(':scope > *, :scope').forEach(()=>{});
+  const walk=node=>{
+    if(node.nodeType===3){
+      const frag=document.createDocumentFragment();
+      node.textContent.split('').forEach((ch,i)=>{
+        if(ch===' '){frag.appendChild(document.createTextNode(' '));return;}
+        const s=document.createElement('span');
+        s.className='split-ch';
+        s.textContent=ch;
+        s.style.animationDelay=(i*30)+'ms';
+        frag.appendChild(s);
+      });
+      node.parentNode.replaceChild(frag,node);
+    } else if(node.nodeType===1 && node.tagName!=='BR'){
+      [...node.childNodes].forEach(walk);
+    }
+  };
+  [...el.childNodes].forEach(walk);
+});
+
+/* ========== АНИМИРОВАННЫЕ СЧЁТЧИКИ ========== */
+const counters=document.querySelectorAll('[data-count]');
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting||e.target.dataset.done)return;
+  e.target.dataset.done='1';
+  const end=+e.target.dataset.count, dur=1600, t0=performance.now();
+  const pre=e.target.dataset.prefix||'', suf=e.target.dataset.suffix||'';
+  const tick=t=>{
+    const p=Math.min(1,(t-t0)/dur);
+    const eased=1-Math.pow(1-p,3);
+    const v=Math.round(end*eased);
+    e.target.textContent=pre+(v>=1000?v.toLocaleString('ru'):v)+suf;
+    if(p<1)requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}),{threshold:.4});
+counters.forEach(c=>cio.observe(c));
+
+/* ========== 3D НАКЛОН КАРТОЧЕК ========== */
+document.querySelectorAll('[data-tilt]').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`perspective(900px) rotateX(${-y*6}deg) rotateY(${x*6}deg) translateY(-6px)`;
+  });
+  card.addEventListener('mouseleave',()=>{card.style.transform=''});
+});
+
+/* ========== МАГНЕТИЧЕСКАЯ КНОПКА ========== */
+document.querySelectorAll('.btn--primary').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const r=btn.getBoundingClientRect();
+    btn.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+    btn.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+  });
+});
+
+/* ========== БОКОВАЯ DOT-НАВИГАЦИЯ ========== */
+const dots=document.querySelectorAll('#dotNav a');
+const sections=[...dots].map(d=>document.querySelector(d.getAttribute('href'))).filter(Boolean);
+const dio=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      dots.forEach(d=>d.classList.remove('active'));
+      const i=sections.indexOf(e.target);
+      if(i>=0)dots[i].classList.add('active');
+    }
+  });
+},{rootMargin:'-40% 0px -55% 0px'});
+sections.forEach(s=>dio.observe(s));
 </script>
 </body>
 </html>
