@@ -268,20 +268,44 @@
   </div>
 </section>
 
-<!-- ===== MIRROR ===== -->
+<!-- ===== MIRROR (тизер) ===== -->
 <section class="mirror" id="mirror">
   <div class="mirror__bg"></div>
   <div class="mirror__particles" aria-hidden="true">
     <span></span><span></span><span></span><span></span><span></span>
     <span></span><span></span><span></span><span></span><span></span>
   </div>
-  <div class="container mirror__inner">
+  <div class="container mirror__inner mirror__inner--teaser">
     <div class="mirror__head">
       <div class="section-eyebrow">Зеркало уверенности</div>
       <h2 class="section-title">Подойдите ближе.<br><em class="grad-text">Что вы видите?</em></h2>
-      <p class="mirror__hint">Поднесите курсор к зеркалу — оно ответит.</p>
+      <p class="mirror__hint">Маленький эксперимент: подышите на стекло — оно ответит.</p>
     </div>
 
+    <button class="mirror__open mirror__open--standalone" id="mirrorOpen" type="button">
+      <span class="mirror__open-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+      </span>
+      <span>Открыть зеркало</span>
+    </button>
+
+    <p class="mirror__foot-hint">займёт 30 секунд · можно закрыть в любой момент</p>
+  </div>
+</section>
+
+<!-- ===== MIRROR (попап) ===== -->
+<div class="mirror-modal" id="mirrorModal" aria-hidden="true" role="dialog" aria-label="Зеркало уверенности">
+  <div class="mirror-modal__backdrop" data-close></div>
+  <button class="mirror-modal__close" data-close aria-label="Закрыть">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6L6 18"/>
+    </svg>
+  </button>
+
+  <div class="mirror-modal__stage">
     <div class="mirror__frame" id="mirrorFrame">
       <!-- декоративная рамка -->
       <svg class="mirror__svg" viewBox="-20 -20 540 740" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -362,24 +386,14 @@
         <span></span><span></span><span></span>
       </div>
 
-      <!-- КНОПКА ОТКРЫТИЯ ============================== -->
-      <button class="mirror__open" id="mirrorOpen" type="button">
-        <span class="mirror__open-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-            <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/>
-            <circle cx="12" cy="12" r="3"/>
-          </svg>
-        </span>
-        <span>Открыть зеркало</span>
-      </button>
     </div>
 
-    <div class="mirror__foot">
+    <div class="mirror-modal__foot">
       <p>Если ваше отражение пока не звучит так — это и есть повод прийти.</p>
-      <a href="#contact" class="btn btn--primary">Записаться</a>
+      <a href="#contact" class="btn btn--primary" data-close>Записаться</a>
     </div>
   </div>
-</section>
+</div>
 
 <!-- ===== PROCESS ===== -->
 <section class="process" id="process">
@@ -717,27 +731,51 @@ document.querySelectorAll('.btn--primary').forEach(btn=>{
   }),{threshold:.25}).observe(path);
 })();
 
-/* ========== ЗЕРКАЛО УВЕРЕННОСТИ ========== */
+/* ========== ЗЕРКАЛО УВЕРЕННОСТИ (модалка) ========== */
 (function(){
-  const section=document.getElementById('mirror');
+  const modal=document.getElementById('mirrorModal');
   const phrases=document.querySelectorAll('.mirror__phrase');
   const openBtn=document.getElementById('mirrorOpen');
-  if(!phrases.length||!section||!openBtn)return;
+  if(!modal||!phrases.length||!openBtn)return;
 
-  let rotation=null;
+  let rotation=null, revealTimer=null, idx=0;
   function startRotation(){
     if(rotation)return;
-    let idx=0;
+    idx=0;
+    phrases.forEach(p=>p.classList.remove('active'));
+    phrases[0].classList.add('active');
     rotation=setInterval(()=>{
       phrases[idx].classList.remove('active');
       idx=(idx+1)%phrases.length;
       phrases[idx].classList.add('active');
     },4200);
   }
+  function stopRotation(){
+    if(rotation){clearInterval(rotation);rotation=null}
+    if(revealTimer){clearTimeout(revealTimer);revealTimer=null}
+  }
 
-  openBtn.addEventListener('click',()=>{
-    section.classList.add('opened');
-    setTimeout(startRotation,1600);  // после анимации занавеси
+  function openModal(){
+    modal.classList.add('show');
+    document.body.style.overflow='hidden';
+    // занавеси открываются через короткий момент после появления модалки
+    requestAnimationFrame(()=>{
+      setTimeout(()=>modal.classList.add('opened'),350);
+    });
+    revealTimer=setTimeout(startRotation,2000);
+  }
+  function closeModal(){
+    modal.classList.remove('show','opened');
+    document.body.style.overflow='';
+    stopRotation();
+  }
+
+  openBtn.addEventListener('click',openModal);
+  modal.querySelectorAll('[data-close]').forEach(el=>{
+    el.addEventListener('click',closeModal);
+  });
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'&&modal.classList.contains('show'))closeModal();
   });
 
   // дымка от дыхания на стекле
@@ -749,11 +787,15 @@ document.querySelectorAll('.btn--primary').forEach(btn=>{
 
   function resize(){
     const r=canvas.getBoundingClientRect();
+    if(r.width===0||r.height===0)return;
     W=canvas.width=r.width*devicePixelRatio;
     H=canvas.height=r.height*devicePixelRatio;
   }
   resize();
   window.addEventListener('resize',resize);
+  if('ResizeObserver' in window){
+    new ResizeObserver(resize).observe(canvas);
+  }
 
   function addPuff(x,y){
     puffs.push({
