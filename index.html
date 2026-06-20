@@ -664,17 +664,25 @@ window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
 
 /* ========== СПЛИТ-ТЕКСТ ЗАГОЛОВКА ========== */
 document.querySelectorAll('[data-split]').forEach(el=>{
-  el.querySelectorAll(':scope > *, :scope').forEach(()=>{});
+  let i=0;
   const walk=node=>{
     if(node.nodeType===3){
       const frag=document.createDocumentFragment();
-      node.textContent.split('').forEach((ch,i)=>{
-        if(ch===' '){frag.appendChild(document.createTextNode(' '));return;}
-        const s=document.createElement('span');
-        s.className='split-ch';
-        s.textContent=ch;
-        s.style.animationDelay=(i*30)+'ms';
-        frag.appendChild(s);
+      // делим по словам, слово остаётся неделимым inline-block
+      const parts=node.textContent.split(/(\s+)/);
+      parts.forEach(part=>{
+        if(!part)return;
+        if(/^\s+$/.test(part)){frag.appendChild(document.createTextNode(part));return;}
+        const word=document.createElement('span');
+        word.className='split-word';
+        [...part].forEach(ch=>{
+          const s=document.createElement('span');
+          s.className='split-ch';
+          s.textContent=ch;
+          s.style.animationDelay=(i++*28)+'ms';
+          word.appendChild(s);
+        });
+        frag.appendChild(word);
       });
       node.parentNode.replaceChild(frag,node);
     } else if(node.nodeType===1 && node.tagName!=='BR'){
