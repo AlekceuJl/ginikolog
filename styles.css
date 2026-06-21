@@ -376,6 +376,14 @@ img,svg{display:block;max-width:100%}
   border-color:#25d366 !important;
 }
 .contact__item--hi span{background:#25d366 !important;width:52px !important;height:52px !important}
+.contact__item--tg span{background:#229ED9 !important;color:#fff !important}
+.contact__item--ig span{
+  background:linear-gradient(135deg,#f58529 0%,#dd2a7b 50%,#8134af 100%) !important;color:#fff !important;
+}
+.contact__item--tt span{
+  background:#000 !important;color:#fff !important;
+  box-shadow:1.5px 0 0 #25f4ee, -1.5px 0 0 #fe2c55;
+}
 .contact__item--hi b{font-size:19px !important}
 @media (max-width:700px){
   .contact__items--grid{grid-template-columns:1fr}
