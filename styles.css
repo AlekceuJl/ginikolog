@@ -821,6 +821,49 @@ img,svg{display:block;max-width:100%}
 }
 
 /* ========================================================== */
+/* ===== ПЛАВАЮЩАЯ КНОПКА «ЗЕРКАЛО» (над WhatsApp) ========== */
+/* ========================================================== */
+.mirror-float{
+  position:fixed;right:22px;bottom:94px;z-index:90;
+  width:60px;height:60px;border-radius:50%;cursor:pointer;
+  background:linear-gradient(135deg,#d4b88a 0%,#8c6f47 100%);
+  color:#1a1410;border:1px solid rgba(255,255,255,.25);
+  display:grid;place-items:center;
+  box-shadow:0 12px 28px -6px rgba(140,111,71,.55), 0 4px 12px rgba(0,0,0,.18),
+             inset 0 1px 0 rgba(255,255,255,.4);
+  transition:transform .25s ease, box-shadow .25s ease;
+  animation:mirrorPulse 3s ease-in-out infinite;
+}
+.mirror-float svg{width:28px;height:28px}
+.mirror-float:hover{
+  transform:scale(1.08);
+  box-shadow:0 16px 36px -6px rgba(140,111,71,.7), 0 6px 16px rgba(0,0,0,.22),
+             inset 0 1px 0 rgba(255,255,255,.5);
+}
+.mirror-float:hover .mirror-float__tip{opacity:1;transform:translateX(0)}
+.mirror-float__tip{
+  position:absolute;right:74px;top:50%;transform:translateY(-50%) translateX(8px);
+  background:#191923;color:#fff;
+  padding:8px 14px;border-radius:8px;
+  font-size:13px;font-weight:500;letter-spacing:.02em;white-space:nowrap;
+  opacity:0;pointer-events:none;transition:.25s ease;
+  box-shadow:0 6px 16px rgba(0,0,0,.2);
+}
+.mirror-float__tip::after{
+  content:"";position:absolute;left:100%;top:50%;transform:translateY(-50%);
+  border:6px solid transparent;border-left-color:#191923;
+}
+@keyframes mirrorPulse{
+  0%,100%{box-shadow:0 12px 28px -6px rgba(140,111,71,.55), 0 4px 12px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.4), 0 0 0 0 rgba(212,184,138,.5)}
+  50%{box-shadow:0 12px 28px -6px rgba(140,111,71,.55), 0 4px 12px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.4), 0 0 0 14px rgba(212,184,138,0)}
+}
+@media (max-width:600px){
+  .mirror-float{right:14px;bottom:82px;width:50px;height:50px}
+  .mirror-float svg{width:24px;height:24px}
+  .mirror-float__tip{display:none}
+}
+
+/* ========================================================== */
 /* ===== ЗЕРКАЛО УВЕРЕННОСТИ ================================ */
 /* ========================================================== */
 .mirror{

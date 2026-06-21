@@ -32,7 +32,6 @@
   <a href="#services" data-label="Услуги"></a>
   <a href="#advantages" data-label="Почему я"></a>
   <a href="#club" data-label="Канал"></a>
-  <a href="#mirror" data-label="Зеркало"></a>
   <a href="#reviews" data-label="Отзывы"></a>
   <a href="#faq" data-label="Вопросы"></a>
   <a href="#contact" data-label="Контакты"></a>
@@ -433,33 +432,14 @@
   </div>
 </section>
 
-<!-- ===== MIRROR (тизер) ===== -->
-<section class="mirror" id="mirror">
-  <div class="mirror__bg"></div>
-  <div class="mirror__particles" aria-hidden="true">
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
-  </div>
-  <div class="container mirror__inner mirror__inner--teaser">
-    <div class="mirror__head">
-      <div class="section-eyebrow">Зеркало уверенности</div>
-      <h2 class="section-title">Подойдите ближе.<br><em class="grad-text">Что вы видите?</em></h2>
-      <p class="mirror__hint">Маленький эксперимент: подышите на стекло — оно ответит.</p>
-    </div>
-
-    <button class="mirror__open mirror__open--standalone" id="mirrorOpen" type="button">
-      <span class="mirror__open-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-          <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/>
-          <circle cx="12" cy="12" r="3"/>
-        </svg>
-      </span>
-      <span>Открыть зеркало</span>
-    </button>
-
-    <p class="mirror__foot-hint">займёт 30 секунд · можно закрыть в любой момент</p>
-  </div>
-</section>
+<!-- ===== MIRROR (плавающий виджет-триггер) ===== -->
+<button class="mirror-float" id="mirrorOpen" type="button" aria-label="Зеркало уверенности">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+    <ellipse cx="12" cy="12" rx="7" ry="9"/>
+    <path d="M9 8 C 8 11, 8 13, 9 16"/>
+  </svg>
+  <span class="mirror-float__tip">Зеркало уверенности</span>
+</button>
 
 <!-- ===== MIRROR (попап) ===== -->
 <div class="mirror-modal" id="mirrorModal" aria-hidden="true" role="dialog" aria-label="Зеркало уверенности">
