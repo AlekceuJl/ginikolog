@@ -275,6 +275,22 @@ img,svg{display:block;max-width:100%}
 .path__card h4{font-family:var(--serif);font-size:22px;font-weight:700;margin-bottom:10px;color:var(--ink);line-height:1.25}
 .path__card p{font-size:16px;line-height:1.6;color:var(--ink-2);margin:0}
 
+/* CTA внутри Process */
+.process__cta{
+  margin-top:50px;text-align:center;display:grid;gap:18px;justify-items:center;
+}
+.process__cta-text{
+  font-family:var(--serif);font-size:21px;line-height:1.4;color:var(--ink);font-weight:400;font-style:italic;
+}
+.process__cta-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.process__cta-row .btn svg{margin-right:2px}
+@media (max-width:600px){
+  .process__cta{margin-top:30px}
+  .process__cta-text{font-size:18px}
+  .process__cta-row{flex-direction:column;width:100%}
+  .process__cta-row .btn{width:100%}
+}
+
 /* связь карточка ↔ узел маленькой линией */
 .path__step--top .path__card{order:2;margin-top:8px}
 .path__step--top .path__node{order:1}
