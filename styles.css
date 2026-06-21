@@ -715,6 +715,23 @@ img,svg{display:block;max-width:100%}
     radial-gradient(circle at 82% 80%,rgba(255,255,255,.03) 0,transparent 1.5px);
   background-size:280px 280px;
 }
+.club__particles{position:absolute;inset:0;z-index:1;pointer-events:none}
+.club__particles span{
+  position:absolute;width:4px;height:4px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,184,138,.7),transparent);
+  animation:floatUp 16s linear infinite;
+}
+.club__particles span:nth-child(1){left:12%;bottom:0;animation-delay:0s;animation-duration:18s}
+.club__particles span:nth-child(2){left:24%;bottom:0;animation-delay:2s;animation-duration:14s}
+.club__particles span:nth-child(3){left:38%;bottom:0;animation-delay:5s;animation-duration:17s}
+.club__particles span:nth-child(4){left:52%;bottom:0;animation-delay:1s;animation-duration:15s}
+.club__particles span:nth-child(5){left:66%;bottom:0;animation-delay:6s;animation-duration:19s}
+.club__particles span:nth-child(6){left:80%;bottom:0;animation-delay:3s;animation-duration:13s}
+.club__particles span:nth-child(7){left:90%;bottom:0;animation-delay:8s;animation-duration:16s}
+.club__particles span:nth-child(8){left:6%;bottom:0;animation-delay:4s;animation-duration:18s}
+.club__particles span:nth-child(9){left:45%;bottom:0;animation-delay:9s;animation-duration:14s}
+.club__particles span:nth-child(10){left:72%;bottom:0;animation-delay:7s;animation-duration:17s}
+
 .club__inner{position:relative;z-index:2}
 .club__card{
   max-width:680px;margin:0 auto;text-align:center;
