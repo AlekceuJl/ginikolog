@@ -359,6 +359,28 @@ img,svg{display:block;max-width:100%}
   background:radial-gradient(circle,rgba(93,153,119,.22) 0%,transparent 70%);
 }
 .contact__inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;position:relative;z-index:1}
+.contact--simple .contact__inner{grid-template-columns:1fr;gap:50px;max-width:980px;margin:0 auto}
+.contact__head{text-align:center;max-width:640px;margin:0 auto}
+.contact__head .section-eyebrow{color:var(--gold)}
+.contact__head > p{color:#c8c8d2;font-size:17px;line-height:1.6;margin-top:8px}
+.contact__items--grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:16px;
+}
+.contact__item--hi{
+  grid-column:1 / -1;
+  background:linear-gradient(135deg,rgba(37,211,102,.12),rgba(37,211,102,.04)) !important;
+  border-color:rgba(37,211,102,.3) !important;
+}
+.contact__item--hi:hover{
+  background:linear-gradient(135deg,rgba(37,211,102,.18),rgba(37,211,102,.06)) !important;
+  border-color:#25d366 !important;
+}
+.contact__item--hi span{background:#25d366 !important;width:52px !important;height:52px !important}
+.contact__item--hi b{font-size:19px !important}
+@media (max-width:700px){
+  .contact__items--grid{grid-template-columns:1fr}
+  .contact__item--hi{grid-column:auto}
+}
 .contact .section-title{color:#fff}
 .contact .section-eyebrow{color:var(--gold)}
 .contact__text > p{color:#c8c8d2;margin-bottom:36px;font-size:17px;line-height:1.6;max-width:440px}
