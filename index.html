@@ -155,9 +155,40 @@
         <li>Эксперт по интимной пластике и лабиопластике</li>
         <li>Владею операциями: лапароскопия, гистероскопия, гистерорезектоскопия, интимная пластика</li>
       </ul>
+      <button type="button" class="about__certs-btn" id="certsOpen">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="9" r="6"/>
+          <path d="M8 13.5 L6 22 L12 19 L18 22 L16 13.5"/>
+        </svg>
+        Посмотреть сертификаты
+      </button>
     </div>
   </div>
 </section>
+
+<!-- ===== ПОПАП СЕРТИФИКАТОВ ===== -->
+<div class="certs-modal" id="certsModal" aria-hidden="true" role="dialog" aria-label="Сертификаты и дипломы">
+  <div class="certs-modal__backdrop" data-cert-close></div>
+  <button class="certs-modal__close" data-cert-close aria-label="Закрыть">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <div class="certs-modal__stage">
+    <div class="certs-modal__head">
+      <div class="section-eyebrow">Документы</div>
+      <h3>Сертификаты и дипломы</h3>
+      <p>Нажмите на любой, чтобы увеличить</p>
+    </div>
+    <div class="certs-grid" id="certsGrid">
+      <a href="images/certificates/cert-1.jpg" target="_blank" rel="noopener" class="certs-grid__item"><img src="images/certificates/cert-1.jpg" alt="Сертификат 1" loading="lazy" onerror="this.parentElement.style.display='none'"></a>
+      <a href="images/certificates/cert-2.jpg" target="_blank" rel="noopener" class="certs-grid__item"><img src="images/certificates/cert-2.jpg" alt="Сертификат 2" loading="lazy" onerror="this.parentElement.style.display='none'"></a>
+      <a href="images/certificates/cert-3.jpg" target="_blank" rel="noopener" class="certs-grid__item"><img src="images/certificates/cert-3.jpg" alt="Сертификат 3" loading="lazy" onerror="this.parentElement.style.display='none'"></a>
+      <a href="images/certificates/cert-4.jpg" target="_blank" rel="noopener" class="certs-grid__item"><img src="images/certificates/cert-4.jpg" alt="Сертификат 4" loading="lazy" onerror="this.parentElement.style.display='none'"></a>
+      <a href="images/certificates/cert-5.jpg" target="_blank" rel="noopener" class="certs-grid__item"><img src="images/certificates/cert-5.jpg" alt="Сертификат 5" loading="lazy" onerror="this.parentElement.style.display='none'"></a>
+      <a href="images/certificates/cert-6.jpg" target="_blank" rel="noopener" class="certs-grid__item"><img src="images/certificates/cert-6.jpg" alt="Сертификат 6" loading="lazy" onerror="this.parentElement.style.display='none'"></a>
+    </div>
+    <p class="certs-empty" id="certsEmpty">Документы загружаются. Скоро будут опубликованы.</p>
+  </div>
+</div>
 
 <!-- ===== SERVICES ===== -->
 <section class="services" id="services">
@@ -784,6 +815,34 @@ document.querySelectorAll('.btn--primary').forEach(btn=>{
   new IntersectionObserver(es=>es.forEach(e=>{
     if(e.isIntersecting){path.classList.add('in')}
   }),{threshold:.25}).observe(path);
+})();
+
+/* ========== ПОПАП СЕРТИФИКАТОВ ========== */
+(function(){
+  const modal=document.getElementById('certsModal');
+  const openBtn=document.getElementById('certsOpen');
+  const grid=document.getElementById('certsGrid');
+  const empty=document.getElementById('certsEmpty');
+  if(!modal||!openBtn)return;
+
+  function openModal(){
+    modal.classList.add('show');
+    document.body.style.overflow='hidden';
+    // через 400 мс проверим, остались ли видимые карточки
+    setTimeout(()=>{
+      const visible=grid.querySelectorAll('.certs-grid__item:not([style*="none"])').length;
+      empty.style.display=visible===0?'block':'none';
+    },400);
+  }
+  function closeModal(){
+    modal.classList.remove('show');
+    document.body.style.overflow='';
+  }
+  openBtn.addEventListener('click',openModal);
+  modal.querySelectorAll('[data-cert-close]').forEach(el=>el.addEventListener('click',closeModal));
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'&&modal.classList.contains('show'))closeModal();
+  });
 })();
 
 /* ========== ЗЕРКАЛО УВЕРЕННОСТИ (модалка) ========== */
