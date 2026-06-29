@@ -78,7 +78,7 @@ img,svg{display:block;max-width:100%}
 .nav__logo{display:flex;align-items:center;gap:12px}
 .nav__logo-img{height:72px;width:auto;object-fit:contain;display:block}
 .nav__logo-fallback{display:flex;align-items:center;gap:12px}
-.footer__logo-img{height:64px;width:auto;object-fit:contain;display:block;filter:brightness(1.1)}
+.footer__logo-img{height:88px;width:auto;object-fit:contain;display:block;filter:brightness(1.1)}
 @media (max-width:600px){.nav__logo-img{height:60px}}
 .nav__logo-mark{
   width:42px;height:42px;border-radius:50%;background:var(--accent);color:#fff;
@@ -552,16 +552,16 @@ img,svg{display:block;max-width:100%}
 .thanks.show{display:block}
 
 /* ===== FOOTER ===== */
-.footer{background:#111118;color:#9da0ad;padding:64px 0 32px;font-size:15px;line-height:1.65}
-.footer__inner{display:grid;grid-template-columns:1.1fr 2.6fr;gap:50px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer{background:#111118;color:#9da0ad;padding:40px 0 22px;font-size:15px;line-height:1.65}
+.footer__inner{display:grid;grid-template-columns:1.1fr 2.6fr;gap:40px;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.08)}
 .footer__brand{display:flex;gap:14px;align-items:flex-start}
 .footer__brand b{color:#fff;font-size:18px;font-family:var(--serif);font-weight:700}
 .footer__brand small{font-size:13px;line-height:1.5;display:block;margin-top:4px}
 .footer__cols{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.footer__cols h5{color:#fff;margin-bottom:16px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
-.footer__cols a{display:block;color:#9da0ad;margin-bottom:10px;transition:.2s;font-size:15px}
+.footer__cols h5{color:#fff;margin-bottom:12px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.footer__cols a{display:block;color:#9da0ad;margin-bottom:7px;transition:.2s;font-size:15px}
 .footer__cols a:hover{color:var(--accent)}
-.footer__bottom{padding-top:24px;text-align:center;font-size:14px;color:#7a7a88}
+.footer__bottom{padding-top:18px;text-align:center;font-size:14px;color:#7a7a88}
 
 /* ===== ABOUT REVEAL ===== */
 .about__inner > *{opacity:0;transform:translateY(20px);transition:.6s}
@@ -1439,10 +1439,10 @@ img,svg{display:block;max-width:100%}
   .mirror-float svg{width:22px;height:22px}
 
   /* FOOTER */
-  .footer{padding:48px 0 24px}
+  .footer{padding:32px 0 18px}
   .footer__cols{gap:24px}
   .footer__brand{flex-direction:column;text-align:center;align-items:center;gap:10px}
-  .footer__logo-img{height:54px}
+  .footer__logo-img{height:72px}
 
   /* SECTION PADDINGS — общее уменьшение */
   .services,.adv,.faq{padding:60px 0}
