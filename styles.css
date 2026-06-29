@@ -598,7 +598,7 @@ body.menu-open .nav__burger span:nth-child(3){top:22px;width:20px;transform:tran
     transform:translateY(-120%);transition:.3s;
   }
   body.menu-open .nav__links{transform:translateY(0)}
-  .nav__burger{display:block;order:-1}
+  .nav__burger{display:block;order:0;margin-left:auto}
   .nav__cta{display:none}
   .hero{padding:60px 0 70px}
   .hero__inner,
