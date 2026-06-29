@@ -554,23 +554,58 @@
       <div class="section-eyebrow">Отзывы</div>
       <h2 class="section-title">Истории моих пациенток</h2>
     </div>
-    <div class="reviews__grid">
-      <figure class="review">
-        <blockquote>Я шла два года. Татьяна — первый врач, рядом с которым мне не было стыдно. Через месяц после операции я снова смотрю на себя в зеркало без раздражения.</blockquote>
-        <figcaption>— Анна, 34 года</figcaption>
-      </figure>
-      <figure class="review">
-        <blockquote>Думала, что «потерплю». Оказалось, не нужно терпеть. Спасибо за то, что объяснили всё без давления, дали подумать и не торопили.</blockquote>
-        <figcaption>— Марина, 41 год</figcaption>
-      </figure>
-      <figure class="review">
-        <blockquote>После родов я не узнавала себя. Татьяна сделала маленькое чудо. Шов аккуратный, через две недели — будто ничего и не было. Уверенность вернулась.</blockquote>
-        <figcaption>— Екатерина, 29 лет</figcaption>
-      </figure>
-      <figure class="review">
-        <blockquote>Пришла по совету подруги — и теперь сама рассказываю всем. Кабинет, разговор, отношение — всё на уровне, к которому привыкаешь сразу.</blockquote>
-        <figcaption>— Ольга, 37 лет</figcaption>
-      </figure>
+    <div class="rev-carousel" id="revCarousel">
+      <button class="rev-arrow rev-arrow--prev" id="revPrev" aria-label="Предыдущий отзыв">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+      <button class="rev-arrow rev-arrow--next" id="revNext" aria-label="Следующий отзыв">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+
+      <div class="rev-stage" id="revStage">
+        <!-- слайды-фото из мессенджеров -->
+        <div class="rev-slide rev-slide--photo" data-slide>
+          <img src="images/reviews/review-1.jpg" alt="Отзыв 1" loading="lazy" onerror="this.parentElement.dataset.broken='1'">
+        </div>
+        <div class="rev-slide rev-slide--text" data-slide>
+          <span class="rev-quote">„</span>
+          <blockquote>Я шла два года. Татьяна — первый врач, рядом с которым мне не было стыдно. Через месяц после операции я снова смотрю на себя в зеркало без раздражения.</blockquote>
+          <figcaption>— Анна, 34 года</figcaption>
+        </div>
+        <div class="rev-slide rev-slide--photo" data-slide>
+          <img src="images/reviews/review-2.jpg" alt="Отзыв 2" loading="lazy" onerror="this.parentElement.dataset.broken='1'">
+        </div>
+        <div class="rev-slide rev-slide--text" data-slide>
+          <span class="rev-quote">„</span>
+          <blockquote>Думала, что «потерплю». Оказалось, не нужно терпеть. Спасибо за то, что объяснили всё без давления, дали подумать и не торопили.</blockquote>
+          <figcaption>— Марина, 41 год</figcaption>
+        </div>
+        <div class="rev-slide rev-slide--photo" data-slide>
+          <img src="images/reviews/review-3.jpg" alt="Отзыв 3" loading="lazy" onerror="this.parentElement.dataset.broken='1'">
+        </div>
+        <div class="rev-slide rev-slide--text" data-slide>
+          <span class="rev-quote">„</span>
+          <blockquote>После родов я не узнавала себя. Татьяна сделала маленькое чудо. Шов аккуратный, через две недели — будто ничего и не было. Уверенность вернулась.</blockquote>
+          <figcaption>— Екатерина, 29 лет</figcaption>
+        </div>
+        <div class="rev-slide rev-slide--photo" data-slide>
+          <img src="images/reviews/review-4.jpg" alt="Отзыв 4" loading="lazy" onerror="this.parentElement.dataset.broken='1'">
+        </div>
+        <div class="rev-slide rev-slide--text" data-slide>
+          <span class="rev-quote">„</span>
+          <blockquote>Пришла по совету подруги — и теперь сама рассказываю всем. Кабинет, разговор, отношение — всё на уровне, к которому привыкаешь сразу.</blockquote>
+          <figcaption>— Ольга, 37 лет</figcaption>
+        </div>
+        <div class="rev-slide rev-slide--photo" data-slide>
+          <img src="images/reviews/review-5.jpg" alt="Отзыв 5" loading="lazy" onerror="this.parentElement.dataset.broken='1'">
+        </div>
+        <div class="rev-slide rev-slide--photo" data-slide>
+          <img src="images/reviews/review-6.jpg" alt="Отзыв 6" loading="lazy" onerror="this.parentElement.dataset.broken='1'">
+        </div>
+      </div>
+
+      <div class="rev-dots" id="revDots"></div>
+      <div class="rev-counter" id="revCounter">01 / 04</div>
     </div>
   </div>
 </section>
@@ -816,6 +851,84 @@ document.querySelectorAll('.btn--primary').forEach(btn=>{
   new IntersectionObserver(es=>es.forEach(e=>{
     if(e.isIntersecting){path.classList.add('in')}
   }),{threshold:.25}).observe(path);
+})();
+
+/* ========== 3D-КАРУСЕЛЬ ОТЗЫВОВ ========== */
+(function(){
+  const carousel=document.getElementById('revCarousel');
+  if(!carousel)return;
+  const stage=document.getElementById('revStage');
+  const dotsBox=document.getElementById('revDots');
+  const counter=document.getElementById('revCounter');
+  const prevBtn=document.getElementById('revPrev');
+  const nextBtn=document.getElementById('revNext');
+
+  // ждём загрузки картинок чтобы битые отсеялись
+  function init(){
+    const all=[...stage.querySelectorAll('[data-slide]')];
+    const slides=all.filter(s=>s.dataset.broken!=='1');
+    if(!slides.length){carousel.style.display='none';return;}
+    let idx=0, autoplay;
+
+    // точки
+    dotsBox.innerHTML='';
+    slides.forEach((_,i)=>{
+      const b=document.createElement('button');
+      b.type='button';b.setAttribute('aria-label','Отзыв '+(i+1));
+      b.addEventListener('click',()=>go(i,true));
+      dotsBox.appendChild(b);
+    });
+
+    function go(n,manual){
+      idx=(n+slides.length)%slides.length;
+      slides.forEach((s,i)=>{
+        let d=i-idx;
+        if(d>slides.length/2)d-=slides.length;
+        if(d<-slides.length/2)d+=slides.length;
+        const pos=Math.abs(d)>2?'far':String(d);
+        s.dataset.pos=pos;
+      });
+      [...dotsBox.children].forEach((d,i)=>d.classList.toggle('active',i===idx));
+      counter.textContent=String(idx+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
+      if(manual){restartAuto();}
+    }
+    function next(){go(idx+1)}
+    function prev(){go(idx-1)}
+    function restartAuto(){clearInterval(autoplay);autoplay=setInterval(next,5500);}
+
+    prevBtn.addEventListener('click',()=>{prev();restartAuto();});
+    nextBtn.addEventListener('click',()=>{next();restartAuto();});
+    // клик по соседнему слайду — переключение на него
+    slides.forEach((s,i)=>s.addEventListener('click',()=>{
+      if(i!==idx){go(i,true);}
+    }));
+
+    // свайп
+    let startX=0,touching=false;
+    stage.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;touching=true},{passive:true});
+    stage.addEventListener('touchend',e=>{
+      if(!touching)return;touching=false;
+      const dx=e.changedTouches[0].clientX-startX;
+      if(Math.abs(dx)>40){dx<0?next():prev();restartAuto();}
+    });
+
+    // пауза при ховере
+    carousel.addEventListener('mouseenter',()=>clearInterval(autoplay));
+    carousel.addEventListener('mouseleave',restartAuto);
+
+    go(0);
+    restartAuto();
+  }
+
+  // дать картинкам шанс загрузиться/упасть
+  const imgs=stage.querySelectorAll('img');
+  let pending=imgs.length;
+  if(!pending){init();return;}
+  imgs.forEach(img=>{
+    const done=()=>{ if(--pending<=0) init(); };
+    if(img.complete){done();}
+    else{img.addEventListener('load',done);img.addEventListener('error',done);}
+  });
 })();
 
 /* ========== ПОПАП СЕРТИФИКАТОВ ========== */
