@@ -1313,6 +1313,141 @@ img,svg{display:block;max-width:100%}
 }
 
 /* --- 15. Скролл-snap не делаем (мешает), но плавнее appearance --- */
+/* ========================================================== */
+/* ===== MOBILE AUDIT (≤560px) ============================== */
+/* ========================================================== */
+@media (max-width:560px){
+  .container{padding:0 18px}
+
+  /* NAV */
+  .nav__inner{padding:14px 16px;gap:12px}
+  .nav__logo{gap:10px;min-width:0}
+  .nav__logo-img{height:40px;flex-shrink:0}
+  .nav__logo-text{font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .nav__logo-text small{font-size:11px}
+
+  /* HERO */
+  .hero{padding:50px 0 60px}
+  .hero__title{font-size:clamp(32px,7vw,42px)}
+  .hero__lead{font-size:17px}
+  .hero__cta{flex-direction:column;align-items:stretch}
+  .hero__cta .btn{width:100%;text-align:center}
+  .hero__photo-frame{max-width:260px;border-width:6px}
+  .hero__photo-badge{
+    left:50% !important;right:auto;transform:translateX(-50%);
+    bottom:-18px;font-size:13px;padding:10px 16px;white-space:nowrap;
+  }
+  .hero__stats{gap:18px 24px}
+  .hero__stats b{font-size:24px}
+  .hero__stats span{font-size:13px}
+  .hero__eyebrow{font-size:11px;padding:6px 12px}
+
+  /* MARQUEE — медленнее, крупнее для читабельности */
+  .marquee__track{animation-duration:35s;gap:36px;padding-left:36px}
+  .marquee__track span{font-size:14px}
+  .trust{padding:16px 0}
+
+  /* ABOUT */
+  .about__photo-frame{max-width:280px;margin:0 auto}
+  .about__quote{
+    max-width:300px;margin:18px auto 0;
+    font-size:17px;padding:20px 24px;text-align:center;
+  }
+  .about__text p{font-size:16px}
+  .about__certs-btn{width:100%;justify-content:center}
+
+  /* SECTION TITLES */
+  .section-title{font-size:clamp(26px,5.5vw,34px) !important}
+  .section-head{margin-bottom:36px}
+
+  /* SERVICES */
+  .service{padding:28px 22px}
+  .service h3{font-size:20px}
+  .service p{font-size:15px}
+  .service__icon{width:46px;height:46px;font-size:20px}
+
+  /* ADVANTAGES */
+  .adv__card{padding:30px 24px}
+  .adv__num{font-size:36px}
+  .adv__card h3{font-size:20px}
+  .adv__card p{font-size:15px}
+
+  /* PROCESS */
+  .process{padding:60px 0}
+  .path{padding:20px 0;gap:24px}
+  .path__card{padding:18px 18px;max-width:none}
+  .path__card h4{font-size:20px}
+  .path__num{font-size:12px}
+  .path__node{width:48px;height:48px}
+  .path__node svg{width:20px;height:20px}
+  .process__cta-text{font-size:16px}
+
+  /* CLUB */
+  .club{padding:60px 0}
+  .club__card{padding:30px 20px}
+  .club__title{font-size:26px}
+  .club__lead{font-size:15px}
+  .club__topic{grid-template-columns:34px 1fr;gap:12px;padding:12px 14px}
+  .club__topic-mark{width:34px;height:34px;font-size:15px}
+  .club__topic b{font-size:15px}
+  .club__topic small{font-size:13px}
+  .club__access{font-size:12px;padding:10px 14px}
+
+  /* REVIEWS CAROUSEL — прячем боковые превью на узких */
+  .reviews{padding:60px 0 80px}
+  .rev-carousel{padding:20px 0 50px}
+  .rev-stage{height:460px}
+  .rev-slide{width:260px;height:420px;margin-left:-130px;margin-top:-210px;border-radius:14px}
+  .rev-slide[data-pos="-1"],.rev-slide[data-pos="1"]{opacity:0;pointer-events:none}
+  .rev-arrow{width:40px;height:40px}
+  .rev-arrow svg{width:18px;height:18px}
+  .rev-arrow--prev{left:6px}
+  .rev-arrow--next{right:6px}
+  .rev-counter{font-size:12px;padding:5px 10px}
+  .rev-dots{margin-top:24px;flex-wrap:wrap;max-width:260px;margin-left:auto;margin-right:auto}
+  .rev-dots button{width:6px;height:6px}
+  .rev-dots button.active{width:20px;border-radius:3px}
+  .rev-slide--text{padding:30px 22px 22px}
+  .rev-slide--text blockquote{font-size:16px}
+  .rev-slide--text .rev-quote{font-size:80px;top:30px;left:18px}
+
+  /* FAQ */
+  .faq__list summary{font-size:16px}
+  .faq__list details{padding:18px 20px}
+  .faq__list p{font-size:15px}
+
+  /* CONTACT */
+  .contact{padding:60px 0}
+  .contact__items--grid{gap:10px}
+  .contact__item{padding:14px 16px;gap:14px}
+  .contact__item span{width:40px;height:40px;flex-shrink:0}
+  .contact__item--hi span{width:46px !important;height:46px !important}
+  .contact__item b{font-size:15px}
+  .contact__item small{font-size:12px}
+  .contact__head > p{font-size:15px}
+
+  /* MIRROR/CERTS MODALS */
+  .mirror-modal__close,.certs-modal__close{top:12px;right:12px;width:40px;height:40px}
+  .certs-modal__stage{padding:22px 18px}
+  .certs-modal__head h3{font-size:22px}
+  .certs-grid{gap:10px}
+
+  /* FLOATING BUTTONS */
+  .wa-float{right:12px;bottom:12px;width:48px;height:48px}
+  .wa-float svg{width:26px;height:26px}
+  .mirror-float{right:12px;bottom:72px;width:44px;height:44px}
+  .mirror-float svg{width:22px;height:22px}
+
+  /* FOOTER */
+  .footer{padding:48px 0 24px}
+  .footer__cols{gap:24px}
+  .footer__brand{flex-direction:column;text-align:center;align-items:center;gap:10px}
+  .footer__logo-img{height:54px}
+
+  /* SECTION PADDINGS — общее уменьшение */
+  .services,.adv,.faq{padding:60px 0}
+}
+
 @media (prefers-reduced-motion: reduce){
   *{animation:none !important;transition:none !important}
   .split-ch{opacity:1;transform:none}

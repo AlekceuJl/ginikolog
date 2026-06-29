@@ -137,3 +137,45 @@
   .svc-related__grid{grid-template-columns:1fr}
   .svc-recovery__row{grid-template-columns:1fr;gap:8px}
 }
+
+@media (max-width:560px){
+  .svc-hero{padding:40px 0 60px}
+  .svc-hero__title{font-size:clamp(26px,6.5vw,34px)}
+  .svc-hero__lead{font-size:16px}
+  .svc-hero__facts{gap:18px}
+  .svc-hero__fact{min-width:0}
+  .svc-hero__fact b{font-size:18px}
+  .svc-hero__fact span{font-size:13px}
+  .svc-hero__cta{flex-direction:column;align-items:stretch}
+  .svc-hero__cta .btn{width:100%;justify-content:center}
+  .svc-hero__visual{max-width:240px;font-size:60px}
+
+  .svc-block{padding:50px 0}
+  .svc-block__title{font-size:22px}
+  .svc-block__body{font-size:16px}
+  .svc-block__body p,.svc-list li{font-size:15px}
+
+  .svc-step{padding:18px;grid-template-columns:44px 1fr;gap:16px}
+  .svc-step::before{font-size:22px}
+  .svc-step h4{font-size:18px}
+  .svc-step p{font-size:14px}
+
+  .svc-recovery__row{padding:14px 18px}
+  .svc-recovery__when{font-size:15px}
+  .svc-recovery__what{font-size:14px}
+
+  .svc-doctor{padding:40px 0}
+  .svc-doctor__photo{width:110px;height:110px;font-size:38px}
+  .svc-doctor__text h3{font-size:20px}
+
+  .svc-related{padding:50px 0}
+  .svc-related a{padding:20px}
+  .svc-related h4{font-size:17px}
+
+  .svc-cta{padding:48px 0}
+  .svc-cta h2{font-size:22px}
+  .svc-cta p{font-size:15px}
+
+  .crumbs{font-size:13px;flex-wrap:wrap}
+  .svc-note{font-size:13px;padding:14px 18px}
+}
