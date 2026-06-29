@@ -1417,9 +1417,9 @@ body.menu-open .nav__burger span:nth-child(3){top:22px;width:20px;transform:tran
   .club__access{font-size:12px;padding:10px 14px}
 
   /* REVIEWS CAROUSEL — прячем боковые превью на узких */
-  .reviews{padding:60px 0 80px}
-  .rev-carousel{padding:20px 0 50px}
-  .rev-stage{height:460px}
+  .reviews{padding:50px 0 40px}
+  .rev-carousel{padding:8px 0 20px}
+  .rev-stage{height:430px}
   .rev-slide{width:260px;height:420px;margin-left:-130px;margin-top:-210px;border-radius:14px}
   .rev-slide[data-pos="-1"],.rev-slide[data-pos="1"]{opacity:0;pointer-events:none}
   .rev-arrow{width:40px;height:40px}
