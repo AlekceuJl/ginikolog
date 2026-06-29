@@ -76,6 +76,10 @@ img,svg{display:block;max-width:100%}
 }
 .nav__inner{display:flex;align-items:center;gap:32px;padding:18px 24px}
 .nav__logo{display:flex;align-items:center;gap:12px}
+.nav__logo-img{height:54px;width:auto;object-fit:contain;display:block}
+.nav__logo-fallback{display:flex;align-items:center;gap:12px}
+.footer__logo-img{height:64px;width:auto;object-fit:contain;display:block;filter:brightness(1.1)}
+@media (max-width:600px){.nav__logo-img{height:44px}}
 .nav__logo-mark{
   width:42px;height:42px;border-radius:50%;background:var(--accent);color:#fff;
   display:grid;place-items:center;font-family:var(--serif);font-size:20px;font-weight:700;
