@@ -1427,9 +1427,7 @@ body.menu-open .nav__burger span:nth-child(3){top:22px;width:20px;transform:tran
   .rev-arrow--prev{left:6px}
   .rev-arrow--next{right:6px}
   .rev-counter{font-size:12px;padding:5px 10px}
-  .rev-dots{margin-top:24px;flex-wrap:wrap;max-width:260px;margin-left:auto;margin-right:auto}
-  .rev-dots button{width:6px;height:6px}
-  .rev-dots button.active{width:20px;border-radius:3px}
+  .rev-dots{display:none}
   .rev-slide--text{padding:30px 22px 22px}
   .rev-slide--text blockquote{font-size:16px}
   .rev-slide--text .rev-quote{font-size:80px;top:30px;left:18px}
