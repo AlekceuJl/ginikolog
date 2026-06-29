@@ -78,7 +78,7 @@ img,svg{display:block;max-width:100%}
 .nav__logo{display:flex;align-items:center;gap:12px}
 .nav__logo-img{height:72px;width:auto;object-fit:contain;display:block}
 .nav__logo-fallback{display:flex;align-items:center;gap:12px}
-.footer__logo-img{height:88px;width:auto;object-fit:contain;display:block;filter:brightness(1.1)}
+.footer__logo-img{height:64px;width:auto;object-fit:contain;display:block;filter:brightness(1.1)}
 @media (max-width:600px){.nav__logo-img{height:60px}}
 .nav__logo-mark{
   width:42px;height:42px;border-radius:50%;background:var(--accent);color:#fff;
@@ -1442,7 +1442,7 @@ img,svg{display:block;max-width:100%}
   .footer{padding:48px 0 24px}
   .footer__cols{gap:24px}
   .footer__brand{flex-direction:column;text-align:center;align-items:center;gap:10px}
-  .footer__logo-img{height:72px}
+  .footer__logo-img{height:54px}
 
   /* SECTION PADDINGS — общее уменьшение */
   .services,.adv,.faq{padding:60px 0}
