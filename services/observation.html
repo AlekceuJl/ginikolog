@@ -161,5 +161,30 @@
   </div>
   <div class="footer__bottom container">© 2026 · Сделано с заботой о женщинах</div>
 </footer>
+<!-- ===== COOKIE BAR ===== -->
+<div class="cookie-bar" id="cookieBar" hidden>
+  <div class="cookie-bar__text">
+    Мы используем cookie, чтобы сайт работал удобнее.
+    Продолжая пользоваться сайтом, вы соглашаетесь с
+    <a href="#">политикой конфиденциальности</a> и обработкой персональных данных.
+  </div>
+  <button type="button" class="cookie-bar__btn" id="cookieAccept">Принимаю</button>
+</div>
+<script>
+(function(){
+  var bar=document.getElementById('cookieBar');
+  if(!bar)return;
+  try{
+    if(localStorage.getItem('cookieAccepted')==='1')return;
+  }catch(e){}
+  bar.hidden=false;
+  document.getElementById('cookieAccept').addEventListener('click',function(){
+    try{localStorage.setItem('cookieAccepted','1')}catch(e){}
+    bar.classList.add('hide');
+    setTimeout(function(){bar.hidden=true},350);
+  });
+})();
+</script>
+
 </body>
 </html>
