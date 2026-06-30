@@ -763,15 +763,18 @@ window.addEventListener('scroll',()=>{
   scrollBar.style.width=p+'%';
 },{passive:true});
 
-/* ========== СВЕЧЕНИЕ ЗА КУРСОРОМ ========== */
+/* ========== СВЕЧЕНИЕ ЗА КУРСОРОМ (только на десктопах с мышью) ========== */
 const glow=document.getElementById('cursorGlow');
-let mx=window.innerWidth/2,my=window.innerHeight/2,gx=mx,gy=my;
-window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
-(function loop(){
-  gx+=(mx-gx)*.12; gy+=(my-gy)*.12;
-  glow.style.transform=`translate(${gx-200}px,${gy-200}px)`;
-  requestAnimationFrame(loop);
-})();
+const isTouch=window.matchMedia('(hover:none)').matches;
+if(glow && !isTouch){
+  let mx=window.innerWidth/2,my=window.innerHeight/2,gx=mx,gy=my;
+  window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+  (function loop(){
+    gx+=(mx-gx)*.12; gy+=(my-gy)*.12;
+    glow.style.transform=`translate(${gx-200}px,${gy-200}px)`;
+    requestAnimationFrame(loop);
+  })();
+}
 
 /* ========== СПЛИТ-ТЕКСТ ЗАГОЛОВКА ========== */
 document.querySelectorAll('[data-split]').forEach(el=>{
@@ -821,16 +824,18 @@ const cio=new IntersectionObserver(es=>es.forEach(e=>{
 }),{threshold:.4});
 counters.forEach(c=>cio.observe(c));
 
-/* ========== 3D НАКЛОН КАРТОЧЕК ========== */
-document.querySelectorAll('[data-tilt]').forEach(card=>{
-  card.addEventListener('mousemove',e=>{
-    const r=card.getBoundingClientRect();
-    const x=(e.clientX-r.left)/r.width-.5;
-    const y=(e.clientY-r.top)/r.height-.5;
-    card.style.transform=`perspective(900px) rotateX(${-y*6}deg) rotateY(${x*6}deg) translateY(-6px)`;
+/* ========== 3D НАКЛОН КАРТОЧЕК (только не-тач) ========== */
+if(!window.matchMedia('(hover:none)').matches){
+  document.querySelectorAll('[data-tilt]').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-.5;
+      const y=(e.clientY-r.top)/r.height-.5;
+      card.style.transform=`perspective(900px) rotateX(${-y*6}deg) rotateY(${x*6}deg) translateY(-6px)`;
+    });
+    card.addEventListener('mouseleave',()=>{card.style.transform=''});
   });
-  card.addEventListener('mouseleave',()=>{card.style.transform=''});
-});
+}
 
 /* ========== МАГНЕТИЧЕСКАЯ КНОПКА ========== */
 document.querySelectorAll('.btn--primary').forEach(btn=>{
@@ -915,6 +920,14 @@ document.querySelectorAll('.btn--primary').forEach(btn=>{
 
     go(0);
     restartAuto();
+
+    // пауза автоплея, когда карусель ушла за пределы экрана
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(es=>es.forEach(e=>{
+        if(e.isIntersecting)restartAuto();
+        else clearInterval(autoplay);
+      }),{threshold:.1}).observe(carousel);
+    }
   }
 
   // дать картинкам шанс загрузиться/упасть

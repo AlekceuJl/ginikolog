@@ -1578,6 +1578,31 @@ body.menu-open .nav__burger span:nth-child(3){top:22px;width:20px;transform:tran
   .cookie-bar__btn{width:100%}
 }
 
+/* ========================================================== */
+/* ===== MOBILE PERFORMANCE (отключаем мерцание) ============ */
+/* ========================================================== */
+@media (max-width:760px){
+  /* декоративные анимации, перегружающие GPU на смартфонах */
+  .hero__photo-frame{animation:none}
+  .hero__photo-badge span{animation:none}
+  .path__node{animation:none}
+  .scroll-progress span{animation:none;background:var(--accent)}
+  .nav__burger{animation:none}
+  .wa-float{animation:none}
+  .mirror-float{animation:none}
+  .club__particles{display:none}
+  .mirror__particles{display:none}
+  .cursor-glow{display:none !important}
+  /* убираем will-change чтобы освободить compositor-layers */
+  [data-tilt]{will-change:auto;transform:none !important}
+  .rev-slide{will-change:auto}
+  /* backdrop-filter жрёт CPU на iOS Safari */
+  .cookie-bar{backdrop-filter:none;background:#191923}
+  .certs-modal__backdrop,.mirror-modal__backdrop,.lic-modal__backdrop{backdrop-filter:none}
+  /* tilt-3D на карточках отключаем — он отрабатывает mousemove даже на touch */
+  .service[data-tilt]:hover,.adv__card[data-tilt]:hover{transform:none}
+}
+
 @media (prefers-reduced-motion: reduce){
   *{animation:none !important;transition:none !important}
   .split-ch{opacity:1;transform:none}
