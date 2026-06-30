@@ -161,7 +161,7 @@
     <div class="footer__cols">
       <div><h5>Разделы</h5><a href="../index.html#about">Обо мне</a><a href="../index.html#services">Услуги</a><a href="../index.html#reviews">Отзывы</a></div>
       <div><h5>Контакты</h5><a href="tel:+77025969615">+7 702 596 96 15</a><a href="https://wa.me/77025969615">WhatsApp</a><a href="https://t.me/+KmnrLPu9nuU3OWZi" target="_blank" rel="noopener">Telegram-канал</a></div><div><h5>Соцсети</h5><a href="https://www.instagram.com/ginekolog.tatyana" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@ginekolog.tatyana" target="_blank" rel="noopener">TikTok</a></div>
-      <div><h5>Документы</h5><a href="#">Лицензия</a><a href="../policy.html">Политика конфиденциальности</a></div>
+      <div><h5>Документы</h5><a href="#" data-lic-open>Лицензия</a><a href="../policy.html">Политика конфиденциальности</a></div>
     </div>
   </div>
   <div class="footer__bottom container">© 2026 · Сделано с заботой о женщинах</div>
@@ -187,6 +187,48 @@
     try{localStorage.setItem('cookieAccepted','1')}catch(e){}
     bar.classList.add('hide');
     setTimeout(function(){bar.hidden=true},350);
+  });
+})();
+</script>
+
+<!-- ===== ПОПАП ЛИЦЕНЗИЙ ===== -->
+<div class="lic-modal" id="licenseModal" aria-hidden="true" role="dialog" aria-label="Лицензии">
+  <div class="lic-modal__backdrop" data-lic-close></div>
+  <button class="lic-modal__close" data-lic-close aria-label="Закрыть">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <div class="lic-modal__stage">
+    <div class="lic-modal__head">
+      <div class="section-eyebrow">Документы</div>
+      <h3>Лицензии и разрешения</h3>
+      <p>Откройте PDF-файл в новой вкладке</p>
+    </div>
+    <div class="lic-grid">
+      <a href="../docs/license-1.pdf" target="_blank" rel="noopener" class="lic-card">
+        <span class="lic-card__icon">PDF</span>
+        <div class="lic-card__body"><b>Лицензия № 1</b><small>открыть в новой вкладке</small></div>
+        <span class="lic-card__arrow">→</span>
+      </a>
+      <a href="../docs/license-2.pdf" target="_blank" rel="noopener" class="lic-card">
+        <span class="lic-card__icon">PDF</span>
+        <div class="lic-card__body"><b>Лицензия № 2</b><small>открыть в новой вкладке</small></div>
+        <span class="lic-card__arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var m=document.getElementById('licenseModal');
+  if(!m)return;
+  document.querySelectorAll('[data-lic-open]').forEach(function(b){b.addEventListener('click',function(e){
+    e.preventDefault();m.classList.add('show');document.body.style.overflow='hidden';
+  });});
+  m.querySelectorAll('[data-lic-close]').forEach(function(el){el.addEventListener('click',function(){
+    m.classList.remove('show');document.body.style.overflow='';
+  });});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&m.classList.contains('show')){m.classList.remove('show');document.body.style.overflow='';}
   });
 })();
 </script>
