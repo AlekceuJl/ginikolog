@@ -1,0 +1,4 @@
+Contact: https://wa.me/77025969615
+Preferred-Languages: ru, en
+Canonical: https://tatiana-doc.kz/.well-known/security.txt
+Expires: 2027-12-31T23:59:59.000Z
